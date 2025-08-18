@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Collection;
 interface CategoryRepository
 {
     public function index(): Collection;
-    public function find(int $id): ?Category;
-    public function store(array $data): ?Category;
-    public function update(int $id, array $data): ?Category;
+    public function find(int $id): Category;
+    public function store(array $data): Category;
+    public function update(int $id, array $data): Category;
     public function delete(int $id): bool;
 }
 
@@ -24,9 +24,9 @@ class EloquentCategoryRepository implements CategoryRepository
         return $this->category->all();
     }
 
-    public function find(int $id): ?Category
+    public function find(int $id): Category
     {
-        return $this->category->find($id);
+        return $this->category->findOrFail($id);
     }
 
     public function store(array $data): Category
@@ -34,7 +34,7 @@ class EloquentCategoryRepository implements CategoryRepository
         return $this->category->create($data);
     }
 
-    public function update(int $id, array $data): ?Category
+    public function update(int $id, array $data): Category
     {
         $category = $this->category->findOrFail($id);
         return $category->update($data);

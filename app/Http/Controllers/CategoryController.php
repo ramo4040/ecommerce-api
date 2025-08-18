@@ -19,21 +19,28 @@ class CategoryController extends Controller
         return ApiResponse::success($categories);
     }
 
+    public function show(string $id)
+    {
+        $category = $this->categoryService->findById($id);
+        return ApiResponse::success($category);
+    }
+
     public function store(CategoryRequest $request)
     {
         $data = $this->categoryService->create($request->validated());
-        return ApiResponse::created($data, 'Category created successfully');
+        return ApiResponse::created($data, __('messages.category_created'));
     }
 
     public function update(CategoryRequest $request, string $id)
     {
         $data = $this->categoryService->update($id, $request->validated());
-        return ApiResponse::success($data, 'Category updated successfully');
+        return ApiResponse::success($data, __('messages.category_updated'));
     }
 
     public function destroy(string $id)
     {
         $isDeleted = $this->categoryService->delete($id);
-        return ApiResponse::deleted($isDeleted ? 'Category deleted successfully' : 'Category not found');
+        $message = $isDeleted ? __('messages.category_deleted') : __('messages.category_not_found');
+        return ApiResponse::deleted($message);
     }
 }

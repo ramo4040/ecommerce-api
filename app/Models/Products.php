@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 
 class Products extends Model
@@ -14,6 +15,7 @@ class Products extends Model
     protected $fillable = [
         'name',
         'description',
+        'sku',
         'slug',
         'price',
         'compare_price',
@@ -36,10 +38,31 @@ class Products extends Model
         'is_featured' => 'boolean',
     ];
 
+    protected $appends = ['is_on_sale', 'discount_percentage'];
+
+    protected $with = ['category:id,slug,icon,name,description'];
+
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);
+    }
+
+    protected function discountPercentage(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) =>
+            $attributes['compare_price']
+                ? round((($attributes['compare_price'] - $attributes['price']) / $attributes['compare_price']) * 100, 2)
+                : null
+        );
+    }
+
+    public function isOnSale(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['compare_price'] !== null,
+        );
     }
 
     public function category()

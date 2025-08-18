@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('slug')->unique();
+            $table->string('sku')->unique();
             $table->decimal('price', 10, 2);
             $table->decimal('compare_price', 10, 2)->nullable();
             $table->integer('quantity')->default(0);
@@ -31,11 +32,11 @@ return new class extends Migration
             $table->timestamps();
 
             $table->index(['sku']);
-            $table->index(['is_active', 'published_at']);
+            $table->index(['is_active', 'created_at']);
             $table->index(['is_featured']);
             $table->index(['stock_status']);
             $table->index(['slug']);
-            $table->fullText(['name', 'description', 'short_description']);
+            $table->fullText(['name', 'description']);
         });
     }
 

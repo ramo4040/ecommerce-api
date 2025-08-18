@@ -2,10 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
 
 class Products extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'description',
@@ -30,6 +35,12 @@ class Products extends Model
         'is_active' => 'boolean',
         'is_featured' => 'boolean',
     ];
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
 
     public function category()
     {

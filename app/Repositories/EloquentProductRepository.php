@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories;
+
 use App\Models\Products;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -12,7 +14,7 @@ interface ProductsRepository
     public function delete(int $id): bool;
 }
 
-class EloquentProductsRepository implements ProductsRepository
+class EloquentProductRepository implements ProductsRepository
 {
     public function index(): Collection
     {
@@ -38,6 +40,6 @@ class EloquentProductsRepository implements ProductsRepository
 
     public function delete(int $id): bool
     {
-        return Products::delete($id) > 0;
+        return Products::destroy($id) > 0;
     }
 }

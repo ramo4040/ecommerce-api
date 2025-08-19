@@ -86,8 +86,8 @@ class Products extends Model
             ->when(isset($filter['is_on_sale']), function ($query) {
                 $query->whereNotNull('compare_price');
             })
-            ->when(isset($filter['status']), function ($query) {
-                $query->where('status', ProductStatus::ACTIVE->value);
+            ->when(isset($filter['status']), function ($query) use ($filter) {
+                $query->where('status', $filter['status']);
             });
     }
 

@@ -5,14 +5,25 @@ namespace App\Http\Controllers;
 use App\Helpers\ApiResponse;
 use App\Http\Requests\ProductRequest;
 use App\Services\ProductService;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
     public function __construct(private ProductService $productService) {}
 
-    public function index()
+    public function index(Request $request)
     {
-        return ApiResponse::success($this->productService->all());
+        $filter = $request->only([
+            'filter',
+            'category',
+            'min_price',
+            'max_price',
+            'is_featured',
+            'is_on_sale',
+            'status'
+        ]);
+        $products = $this->productService->all($filter);
+        return ApiResponse::success($products);
     }
 
     public function show(int $id)

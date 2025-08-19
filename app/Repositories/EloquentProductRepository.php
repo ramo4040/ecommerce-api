@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 interface ProductsRepository
 {
-    public function index(): Collection;
+    public function index(array $filter): Collection;
     public function find(int $id): ?Products;
     public function create(array $data): Products;
     public function update(int $id, array $data): ?Products;
@@ -16,9 +16,9 @@ interface ProductsRepository
 
 class EloquentProductRepository implements ProductsRepository
 {
-    public function index(): Collection
+    public function index(array $filter): Collection
     {
-        return Products::all();
+        return Products::filter($filter)->get();
     }
 
     public function find(int $id): ?Products

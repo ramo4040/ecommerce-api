@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ProductStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -62,6 +63,32 @@ class Products extends Model
         return Attribute::make(
             get: fn($value, $attributes) => $attributes['compare_price'] !== null,
         );
+    }
+
+    /**
+     * Scope a query to filter products based on the given criteria.
+     */
+    public function scopeFilter($query, $filter)
+    {
+        return $query
+            ->when(isset($filter['filter']), function ($query) use ($filter) {
+                $query->where('name', 'like', '%' . $filter['filter'] . '%');
+            })
+            ->when(isset($filter['category']), function ($query) use ($filter) {
+                $query->where('category_id', $filter['category']);
+            })
+            ->when(isset($filter['min_price']) && isset($filter['max_price']), function ($query) use ($filter) {
+                $query->whereBetween('price', [$filter['min_price'], $filter['max_price']]);
+            })
+            ->when(isset($filter['is_featured']), function ($query) {
+                $query->where('is_featured', true);
+            })
+            ->when(isset($filter['is_on_sale']), function ($query) {
+                $query->whereNotNull('compare_price');
+            })
+            ->when(isset($filter['status']), function ($query) {
+                $query->where('status', ProductStatus::ACTIVE->value);
+            });
     }
 
     public function category()

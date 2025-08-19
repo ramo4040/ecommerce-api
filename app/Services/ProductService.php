@@ -10,9 +10,9 @@ class ProductService
 {
     public function __construct(private ProductsRepository $productsRepository) {}
 
-    public function all(): Collection
+    public function all(array $filter): Collection
     {
-        return $this->productsRepository->index();
+        return $this->productsRepository->index($filter);
     }
 
     public function find(int $id): ?Products

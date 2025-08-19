@@ -20,14 +20,13 @@ class Products extends Model
         'price',
         'compare_price',
         'quantity',
-        'stock_status',
+        'status',
         'category_id',
         'main_image',
         'gallery_images',
         'meta_title',
         'meta_description',
         'tags',
-        'is_active',
         'is_featured',
     ];
 

@@ -33,6 +33,7 @@ These instructions guide Copilot to generate code that aligns with modern Larave
     -   `app/Http/Resources` - API resource responses
     -   `app/Enums` - Enums
     -   `app/Services` - Business logic
+    -   `app/Repositories` - Data access
     -   `app/Data` - Data Transfer Objects (DTOs)
     -   `app/Actions` - Single-responsibility action classes
     -   `app/Policies` - Authorization logic

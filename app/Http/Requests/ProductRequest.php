@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\ProductStatus;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProductRequest extends FormRequest
 {
@@ -22,7 +24,7 @@ class ProductRequest extends FormRequest
             'price' => 'required|numeric',
             'compare_price' => 'nullable|numeric|gt:price',
             'quantity' => 'required|integer|min:0',
-            'stock_status' => 'required|in:in_stock,out_of_stock',
+            'status' => ['required', Rule::enum(ProductStatus::class)],
             'category_id' => 'required|exists:categories,id',
             'main_image' => 'nullable|string',
             'gallery_images' => 'nullable|array',
@@ -31,7 +33,6 @@ class ProductRequest extends FormRequest
             'meta_description' => 'nullable|string|max:500',
             'tags' => 'nullable|array|max:20',
             'tags.*' => 'string|max:50',
-            'is_active' => 'boolean',
             'is_featured' => 'boolean',
         ];
     }
@@ -45,7 +46,7 @@ class ProductRequest extends FormRequest
             'gallery_images' => 'gallery images',
             'meta_title' => 'meta title',
             'meta_description' => 'meta description',
-            'is_active' => 'active status',
+            'status' => 'product status',
             'is_featured' => 'featured status',
         ];
     }

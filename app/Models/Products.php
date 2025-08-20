@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use App\Enums\ProductStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 
-class Products extends Model
+class Product extends Model
 {
     use HasFactory;
 

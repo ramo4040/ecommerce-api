@@ -9,6 +9,10 @@ return [
     'product_updated' => 'Produit mis à jour avec succès',
     'product_deleted' => 'Produit supprimé avec succès',
     'product_not_found' => 'Produit non trouvé',
+
+    'product_added_to_wishlist' => 'Produit ajouté à la liste de souhaits avec succès.',
+    'product_removed_from_wishlist' => 'Produit retiré de la liste de souhaits avec succès.',
+
     'success' => 'Opération terminée avec succès',
     'error' => 'Une erreur s\'est produite',
     'not_found' => 'Ressource non trouvée',

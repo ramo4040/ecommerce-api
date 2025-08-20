@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Collection;
 
-interface ProductsRepository
+interface ProductRepository
 {
     public function index(array $filter): Collection;
     public function find(int $id): ?Product;
@@ -14,7 +14,7 @@ interface ProductsRepository
     public function delete(int $id): bool;
 }
 
-class EloquentProductRepository implements ProductsRepository
+class EloquentProductRepository implements ProductRepository
 {
     public function index(array $filter): Collection
     {

@@ -9,6 +9,10 @@ return [
     'product_updated' => 'Product updated successfully',
     'product_deleted' => 'Product deleted successfully',
     'product_not_found' => 'Product not found',
+
+    'product_added_to_wishlist' => 'Product added to wishlist successfully.',
+    'product_removed_from_wishlist' => 'Product removed from wishlist successfully.',
+
     'success' => 'Operation completed successfully',
     'error' => 'An error occurred',
     'not_found' => 'Resource not found',

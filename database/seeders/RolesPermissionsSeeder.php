@@ -14,6 +14,8 @@ class RolesPermissionsSeeder extends Seeder
      */
     public function run(): void
     {
+        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+
         // Products & Categories
         $ProductsCategoriesPermissions = [
             'products.view',

@@ -86,7 +86,7 @@ class Product extends Model
                 $query->whereNotNull('compare_price');
             })
             ->when(isset($filter['status']), function ($query) use ($filter) {
-                $query->where('status', $filter['status']);
+                $query->whereIn('status', $filter['status']);
             });
     }
 

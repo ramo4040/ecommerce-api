@@ -6,15 +6,22 @@ use App\Http\Controllers\WishListController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-    return $request->user();
-});
 
+// Public routes
+Route::apiResource('categories', CategoryController::class)->only(['index']);
+Route::apiResource('products', ProductsController::class)->only(['index', 'show']);
 
-Route::apiResource('categories', CategoryController::class);
-Route::apiResource('products', ProductsController::class);
-
+// Authenticated routes
 Route::middleware(['auth:sanctum'])->group(function () {
+    // User routes
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::middleware(['role:admin|manager'])->prefix('admin')->group(function () {
+        Route::apiResource('categories', CategoryController::class);
+        Route::apiResource('products', ProductsController::class);
+    });
 
     // Wishlist routes
     Route::prefix('wishlist')->group(function () {

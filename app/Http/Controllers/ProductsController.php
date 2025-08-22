@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ApiResponse;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ProductIndexRequest;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
 
@@ -11,24 +12,18 @@ class ProductsController extends Controller
 {
     public function __construct(private ProductService $productService) {}
 
-    public function index(Request $request)
+    public function index(ProductIndexRequest $request)
     {
-        $filter = $request->only([
-            'filter',
-            'category',
-            'min_price',
-            'max_price',
-            'is_featured',
-            'is_on_sale',
-            'status'
-        ]);
+        $filter = $request->validated();
         $products = $this->productService->all($filter);
         return ApiResponse::success($products);
     }
 
-    public function show(int $id)
+    public function show(int $id, Request $request)
     {
-        return ApiResponse::success($this->productService->find($id));
+        $isAdminRoute = $request->is('api/admin/*');
+        $product = $this->productService->find($id, $isAdminRoute);
+        return ApiResponse::success($product);
     }
 
     public function store(ProductRequest $request)

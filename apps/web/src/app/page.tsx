@@ -1,5 +1,11 @@
 "use client";
 
+import { AnnouncementBanner } from "@/widgets";
+
 export default function Home() {
-  return <main> </main>;
+  return (
+    <section id="hero-section">
+      <AnnouncementBanner />
+    </section>
+  );
 }

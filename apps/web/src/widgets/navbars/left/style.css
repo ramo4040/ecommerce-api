@@ -1,0 +1,41 @@
+#hero-left-navbar {
+  --size: var(--radius-2xl);
+
+  background: var(--background);
+  width: 12rem;
+  height: 2.5rem;
+  border-radius: 0 0 var(--radius-2xl) 0;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: var(--size);
+    aspect-ratio: 1;
+
+    background-image: radial-gradient(
+      circle at 100% 100%,
+      transparent var(--size),
+      var(--background) var(--size)
+    );
+
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline-start: 0;
+  }
+
+  &::before {
+    content: "";
+    width: var(--size);
+    aspect-ratio: 1;
+
+    background-image: radial-gradient(
+      circle at 100% 100%,
+      transparent var(--size),
+      var(--background) var(--size)
+    );
+
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 100%;
+  }
+}

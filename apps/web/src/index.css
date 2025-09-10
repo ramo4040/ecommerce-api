@@ -1,3 +1,4 @@
+@import "../public/styles/tokens.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -10,6 +11,8 @@
 
 html,
 body {
+  height: 100vh;
+
   @apply bg-white dark:bg-gray-950;
 
   @media (prefers-color-scheme: dark) {

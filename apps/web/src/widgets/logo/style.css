@@ -1,0 +1,12 @@
+#logo {
+	--size: 17px;
+	height: var(--size);
+	line-height: 1;
+
+	.logo-icon {
+		width: var(--size);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background-color: var(--primary);
+	}
+}

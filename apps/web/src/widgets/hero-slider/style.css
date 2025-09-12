@@ -1,0 +1,13 @@
+#hero-slider {
+	position: relative;
+	height: 100%;
+	border-radius: var(--radius-lg);
+
+	.slider-container {
+		position: relative;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		border-radius: var(--radius-lg);
+	}
+}

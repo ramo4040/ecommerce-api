@@ -53,6 +53,9 @@ body {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --color-card-bg: #eeeeee; /* neutral gray */
+  --color-card-bg-hover: #f4f4f4; /* slightly darker gray */
 }
 
 .dark {
@@ -87,6 +90,9 @@ body {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  --color-card-bg: #181b1c; /* card background */
+  --color-card-bg-hover: #202324; /* hover background */
 }
 
 @theme inline {

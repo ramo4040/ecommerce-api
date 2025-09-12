@@ -39,6 +39,9 @@
         "useExhaustiveDependencies": "info",
         "useUniqueElementIds": "off"
       },
+      "suspicious": {
+        "noUnknownAtRules": "off"
+      },
       "nursery": {
         "useSortedClasses": {
           "level": "warn",

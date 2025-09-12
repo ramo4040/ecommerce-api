@@ -89,6 +89,7 @@
     backdrop-filter: blur(8px);
     height: 100%;
     opacity: 0;
+    border-radius: var(--radius-lg);
     transition: var(--transition-expressive-default-spatial);
 
     .details {

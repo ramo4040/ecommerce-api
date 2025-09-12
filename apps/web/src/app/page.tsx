@@ -1,5 +1,3 @@
-"use client";
-
 import { Armchair, Car, Globe, Package } from "lucide-react";
 import { AnnouncementBanner, HeroSlider, HomeProductsSlider } from "@/widgets";
 
@@ -31,6 +29,10 @@ export default function Home() {
 			</section>
 
 			<HomeProductsSlider />
+
+			<section className="home-page-separator">
+				<h2>Collections</h2>
+			</section>
 		</main>
 	);
 }

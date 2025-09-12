@@ -53,31 +53,6 @@
       }
     }
 
-    .slider__btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-
-      button {
-        background: var(--transparent-bg-color);
-
-        svg {
-          width: var(--spacing-28);
-          height: var(--spacing-28);
-          color: white;
-        }
-      }
-
-      &.--next {
-        right: 2rem;
-      }
-
-      &.--prev {
-        left: 2rem;
-      }
-    }
-
     .slider__indicators {
       position: absolute;
       bottom: var(--spacing-24);

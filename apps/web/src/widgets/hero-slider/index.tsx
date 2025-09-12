@@ -1,9 +1,11 @@
+"use client";
+
 import "./style.css";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { SliderBtn } from "@/components/slider-btn";
 import { Button } from "@/components/ui/button";
 import { HeroNavbars } from "@/widgets";
 
@@ -75,16 +77,7 @@ export const HeroSlider = () => {
 					})}
 				</ul>
 
-				<div className="slider__btn --next">
-					<Button variant="default" size={"icon"} onClick={handleNext}>
-						<ChevronRight />
-					</Button>
-				</div>
-				<div className="slider__btn --prev">
-					<Button variant="default" size={"icon"} onClick={handlePrev}>
-						<ChevronLeft />
-					</Button>
-				</div>
+				<SliderBtn handleNext={handleNext} handlePrev={handlePrev} />
 
 				<nav className="slider__indicators" aria-label="Slide navigation">
 					{sliders.map((_, index) => {

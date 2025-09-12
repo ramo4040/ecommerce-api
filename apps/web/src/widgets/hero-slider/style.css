@@ -1,107 +1,107 @@
 #hero-slider {
-  position: relative;
-  height: 100%;
-  border-radius: var(--radius-lg);
-  user-select: none;
+	position: relative;
+	height: 100%;
+	border-radius: var(--radius-lg);
+	user-select: none;
 
-  .slider-container {
-    --transparent-bg-color: #00000047;
+	.slider-container {
+		--transparent-bg-color: #00000047;
 
-    height: 100%;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
+		height: 100%;
+		overflow: hidden;
+		border-radius: var(--radius-lg);
 
-    .slider-track {
-      height: 100%;
-      display: flex;
-      list-style: none;
-      transform: translateX(calc(var(--slider-item-index) * -100%));
-      transition: var(--transition-standard-slow-spatial);
+		.slider-track {
+			height: 100%;
+			display: flex;
+			list-style: none;
+			transform: translateX(calc(var(--slider-item-index) * -100%));
+			transition: var(--transition-standard-slow-spatial);
 
-      .slider-item {
-        position: relative;
-        min-width: 100%;
-        display: flex;
-        align-items: end;
-        padding: 3rem;
+			.slider-item {
+				position: relative;
+				min-width: 100%;
+				display: flex;
+				align-items: end;
+				padding: 3rem;
 
-        .details {
-          position: relative;
-          background: var(--card);
-          padding: var(--spacing-32);
-          border-radius: var(--radius-md);
-          max-width: 400px;
+				.details {
+					position: relative;
+					background: var(--card);
+					padding: var(--spacing-32);
+					border-radius: var(--radius-md);
+					max-width: 400px;
 
-          h2 {
-            font-size: var(--spacing-32);
-            margin-bottom: var(--spacing-8);
-            color: var(--primary);
-          }
+					h2 {
+						font-size: var(--spacing-32);
+						margin-bottom: var(--spacing-8);
+						color: var(--primary);
+					}
 
-          p {
-            font-size: var(--font-size-16);
-            margin-bottom: var(--spacing-16);
-            color: var(--muted-foreground);
-          }
+					p {
+						font-size: var(--font-size-16);
+						margin-bottom: var(--spacing-16);
+						color: var(--muted-foreground);
+					}
 
-          a {
-            font-size: var(--spacing-14);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-          }
-        }
-      }
-    }
+					a {
+						font-size: var(--spacing-14);
+						text-decoration: underline;
+						text-underline-offset: 3px;
+					}
+				}
+			}
+		}
 
-    .slider__btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
+		.slider__btn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 10;
 
-      button {
-        background: var(--transparent-bg-color);
+			button {
+				background: var(--transparent-bg-color);
 
-        svg {
-          width: var(--spacing-28);
-          height: var(--spacing-28);
-          color: white;
-        }
-      }
+				svg {
+					width: var(--spacing-28);
+					height: var(--spacing-28);
+					color: white;
+				}
+			}
 
-      &.--next {
-        right: 2rem;
-      }
+			&.--next {
+				right: 2rem;
+			}
 
-      &.--prev {
-        left: 2rem;
-      }
-    }
+			&.--prev {
+				left: 2rem;
+			}
+		}
 
-    .slider__indicators {
-      position: absolute;
-      bottom: var(--spacing-24);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: var(--spacing-8);
-      background: var(--transparent-bg-color);
-      padding: var(--spacing-8) var(--spacing-8);
-      border-radius: var(--radius-rounded);
+		.slider__indicators {
+			position: absolute;
+			bottom: var(--spacing-24);
+			left: 50%;
+			transform: translateX(-50%);
+			display: flex;
+			gap: var(--spacing-8);
+			background: var(--transparent-bg-color);
+			padding: var(--spacing-8) var(--spacing-8);
+			border-radius: var(--radius-rounded);
 
-      button {
-        width: var(--spacing-10);
-        height: var(--spacing-10);
-        border-radius: 50%;
-        background: var(--color-white);
-        opacity: 0.3;
-        cursor: pointer;
-        transition: var(--transition-standard-slow-spatial);
+			button {
+				width: var(--spacing-10);
+				height: var(--spacing-10);
+				border-radius: 50%;
+				background: var(--color-white);
+				opacity: 0.3;
+				cursor: pointer;
+				transition: var(--transition-standard-slow-spatial);
 
-        &[aria-current="true"] {
-          opacity: 1;
-        }
-      }
-    }
-  }
+				&[aria-current="true"] {
+					opacity: 1;
+				}
+			}
+		}
+	}
 }

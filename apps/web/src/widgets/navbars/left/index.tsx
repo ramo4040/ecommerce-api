@@ -5,6 +5,7 @@ import {
 import "./style.css";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { ThemeToggle } from "@/components/theme-toggle";
 import {
 	HoverCard,
 	HoverCardContent,
@@ -30,63 +31,83 @@ const abouts = [
 
 export const HeroLeftNavbar = () => {
 	return (
-		<div id="hero-left-navbar">
-			<Logo />
+		<nav id="hero-left-navbar">
+			<ul>
+				<li>
+					<Logo />
+				</li>
 
-			<HoverCard openDelay={100} closeDelay={100}>
-				<HoverCardTrigger asChild>
-					<ItemFlipWrapper hasIcon>
-						<ItemFlipAnimation text="Collections" />
+				<li>
+					<ItemFlipWrapper>
+						<Link href={{ href: "/shop" }}>
+							<ItemFlipAnimation text="Shop" />
+						</Link>
 					</ItemFlipWrapper>
-				</HoverCardTrigger>
+				</li>
 
-				<HoverCardContent className="menu-card-content">
-					{collections.map((collection) => (
-						<ItemFlipWrapper>
-							<Link
-								href={{ href: collection.href }}
-								key={collection.name}
-								className="item"
-							>
-								<div className="img-wrapper" />
+				<li>
+					<HoverCard openDelay={100} closeDelay={100}>
+						<HoverCardTrigger asChild>
+							<ItemFlipWrapper hasIcon>
+								<ItemFlipAnimation text="Collections" />
+							</ItemFlipWrapper>
+						</HoverCardTrigger>
 
-								<h4>{collection.name}</h4>
+						<HoverCardContent className="menu-card-content">
+							{collections.map((collection) => (
+								<ItemFlipWrapper key={collection.name}>
+									<Link href={{ href: collection.href }} className="item">
+										<div className="img-wrapper" />
 
-								<ItemFlipAnimation
-									text={<ArrowRight size={14} />}
-									className="icon"
-								/>
-							</Link>
-						</ItemFlipWrapper>
-					))}
-				</HoverCardContent>
-			</HoverCard>
+										<h4>{collection.name}</h4>
 
-			<HoverCard openDelay={100} closeDelay={100}>
-				<HoverCardTrigger asChild>
-					<ItemFlipWrapper hasIcon>
-						<ItemFlipAnimation text="About" />
+										<ItemFlipAnimation
+											text={<ArrowRight size={14} />}
+											className="icon"
+										/>
+									</Link>
+								</ItemFlipWrapper>
+							))}
+						</HoverCardContent>
+					</HoverCard>
+				</li>
+
+				<li>
+					<HoverCard openDelay={100} closeDelay={100}>
+						<HoverCardTrigger asChild>
+							<ItemFlipWrapper hasIcon>
+								<ItemFlipAnimation text="About" />
+							</ItemFlipWrapper>
+						</HoverCardTrigger>
+						<HoverCardContent className="menu-card-content about">
+							{abouts.map((about) => (
+								<ItemFlipWrapper key={about.name}>
+									<Link href={{ href: about.href }} className="item">
+										<h4>{about.name}</h4>
+
+										<ItemFlipAnimation
+											text={<ArrowRight size={14} />}
+											className="icon"
+										/>
+									</Link>
+								</ItemFlipWrapper>
+							))}
+						</HoverCardContent>
+					</HoverCard>
+				</li>
+
+				<li>
+					<ItemFlipWrapper>
+						<Link href={{ href: "/blog" }}>
+							<ItemFlipAnimation text="Blog" />
+						</Link>
 					</ItemFlipWrapper>
-				</HoverCardTrigger>
-				<HoverCardContent className="menu-card-content about">
-					{abouts.map((about) => (
-						<ItemFlipWrapper>
-							<Link
-								href={{ href: about.href }}
-								key={about.name}
-								className="item"
-							>
-								<h4>{about.name}</h4>
+				</li>
 
-								<ItemFlipAnimation
-									text={<ArrowRight size={14} />}
-									className="icon"
-								/>
-							</Link>
-						</ItemFlipWrapper>
-					))}
-				</HoverCardContent>
-			</HoverCard>
-		</div>
+				<li>
+					<ThemeToggle />
+				</li>
+			</ul>
+		</nav>
 	);
 };

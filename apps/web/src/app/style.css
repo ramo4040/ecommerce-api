@@ -10,9 +10,9 @@
 }
 
 #hero-section {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  min-height: calc(100vh - (var(--spacing-12) * 2));
+  display: grid;
+  grid-template-rows: auto 1fr;
   gap: var(--spacing-12);
 }
 
@@ -37,4 +37,13 @@
       height: 20px;
     }
   }
+}
+
+.home-page-separator {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-24) var(--spacing-48);
+  background: var(--color-card-bg);
+  color: var(--secondary-foreground);
+  border-radius: var(--radius-lg);
 }

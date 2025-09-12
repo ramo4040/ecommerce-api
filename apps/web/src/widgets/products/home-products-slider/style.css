@@ -1,0 +1,15 @@
+#home-products-slider {
+  width: 100%;
+  overflow: hidden;
+
+  .slider-track {
+    --gap: var(--spacing-12);
+
+    display: flex;
+    gap: var(--gap);
+
+    .product-size {
+      min-width: calc(25% - (var(--gap) - (var(--gap) / 4)));
+    }
+  }
+}

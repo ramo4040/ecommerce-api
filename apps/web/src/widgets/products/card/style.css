@@ -113,7 +113,8 @@
         }
       }
 
-      a {
+      .view-product {
+        cursor: pointer;
         text-decoration: underline;
         text-underline-offset: 2px;
       }

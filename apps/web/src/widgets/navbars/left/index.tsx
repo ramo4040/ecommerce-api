@@ -1,27 +1,19 @@
+import "./style.css";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import {
 	ItemFlipAnimation,
 	ItemFlipWrapper,
 } from "@/components/item-flip-animation";
-import "./style.css";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
 	HoverCard,
 	HoverCardContent,
 	HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { categoriesData } from "@/entities/categories";
 import { Logo } from "@/widgets";
-
-const collections = [
-	{ name: "Dark", description: "A dark and moody theme", href: "/dark" },
-	{ name: "Light", description: "A bright and airy theme", href: "/light" },
-	{
-		name: "Modern",
-		description: "A sleek and contemporary theme",
-		href: "/modern",
-	},
-];
 
 const abouts = [
 	{ name: "About", href: "/about" },
@@ -54,10 +46,17 @@ export const HeroLeftNavbar = () => {
 						</HoverCardTrigger>
 
 						<HoverCardContent className="menu-card-content">
-							{collections.map((collection) => (
+							{categoriesData.map((collection) => (
 								<ItemFlipWrapper key={collection.name}>
-									<Link href={{ href: collection.href }} className="item">
-										<div className="img-wrapper" />
+									<Link href={{ href: collection.slug }} className="item">
+										<div className="img-wrapper">
+											<Image
+												src={`/images/${collection.image}` || ""}
+												alt={collection.meta_title || collection.name}
+												fill
+												style={{ objectFit: "cover" }}
+											/>
+										</div>
 
 										<h4>{collection.name}</h4>
 

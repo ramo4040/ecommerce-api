@@ -2,6 +2,7 @@ import { Armchair, Car, Globe, Package } from "lucide-react";
 import {
 	AboutSection,
 	AnnouncementBanner,
+	Footer,
 	HeroSlider,
 	HomeProductsSlider,
 	HomeSections,
@@ -50,6 +51,8 @@ export default function Home() {
 			<AboutSection />
 
 			<SocialLinks />
+
+			<Footer />
 		</main>
 	);
 }

@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 90vh;
-  gap: var(--spacing-12);
+  gap: var(--spacing-8);
   overflow: hidden;
   border-radius: var(--radius-md);
 
@@ -51,12 +51,12 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
-    gap: var(--spacing-12);
+    gap: var(--spacing-8);
 
     .second-category,
     .third-category {
       display: flex;
-      gap: var(--spacing-12);
+      gap: var(--spacing-8);
 
       & > * {
         border-radius: var(--radius-md);

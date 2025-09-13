@@ -1,3 +1,4 @@
+export { AboutSection } from "./home/about-section";
 export { AnnouncementBanner } from "./home/announcement-banner";
 export { HeroSlider } from "./home/hero-slider";
 export { HomeSections } from "./home/sections";

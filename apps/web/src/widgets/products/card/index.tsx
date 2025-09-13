@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps, FC } from "react";
+import { Button } from "@/components/ui/button";
 import type { Product } from "@/entities/product";
 import { calculateDiscount, cn } from "@/lib/utils";
 
@@ -45,9 +46,9 @@ export const ProductCard: FC<Props> = ({
 						<span>${product.compare_price?.toFixed(2)}</span>
 					</div>
 
-					<Link href={{ href: product.slug }} className="view-product">
+					<Button variant="link" className="view-product">
 						View
-					</Link>
+					</Button>
 				</div>
 			</div>
 		</Link>

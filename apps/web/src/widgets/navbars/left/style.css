@@ -75,10 +75,12 @@
 		}
 
 		.img-wrapper {
+			position: relative;
 			width: var(--spacing-48);
 			aspect-ratio: 1;
 			border-radius: var(--radius-md);
 			background: #cecece;
+			overflow: hidden;
 		}
 
 		h4 {

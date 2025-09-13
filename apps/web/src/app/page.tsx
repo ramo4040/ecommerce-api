@@ -1,9 +1,11 @@
 import { Armchair, Car, Globe, Package } from "lucide-react";
 import {
+	AboutSection,
 	AnnouncementBanner,
 	HeroSlider,
 	HomeProductsSlider,
 	HomeSections,
+	SocialLinks,
 } from "@/widgets";
 
 export default function Home() {
@@ -44,6 +46,10 @@ export default function Home() {
 			<section className="home-page-separator">
 				<h2>About Us</h2>
 			</section>
+
+			<AboutSection />
+
+			<SocialLinks />
 		</main>
 	);
 }

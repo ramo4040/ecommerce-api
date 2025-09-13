@@ -5,6 +5,7 @@ import {
 	HeroSlider,
 	HomeProductsSlider,
 	HomeSections,
+	SocialLinks,
 } from "@/widgets";
 
 export default function Home() {
@@ -47,6 +48,8 @@ export default function Home() {
 			</section>
 
 			<AboutSection />
+
+			<SocialLinks />
 		</main>
 	);
 }

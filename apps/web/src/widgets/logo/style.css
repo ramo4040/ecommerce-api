@@ -1,12 +1,16 @@
 #logo {
-	--size: 17px;
-	height: var(--size);
-	line-height: 1;
+  --bg: var(--foreground);
+  --size: 17px;
 
-	.logo-icon {
-		width: var(--size);
-		aspect-ratio: 1;
-		border-radius: 50%;
-		background-color: var(--primary);
-	}
+  height: var(--size);
+  width: fit-content;
+  line-height: 1;
+  color: var(--bg);
+
+  .logo-icon {
+    width: var(--size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--bg);
+  }
 }

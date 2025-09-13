@@ -6,45 +6,54 @@ import {
 	Linkedin,
 	Twitter,
 } from "lucide-react";
-import Link from "next/link";
 import {
 	ItemFlipAnimation,
 	ItemFlipWrapper,
 } from "@/components/item-flip-animation";
 
+const socialLinks = [
+	{
+		name: "Facebook",
+		href: "https://facebook.com",
+		icon: <Facebook />,
+	},
+	{
+		name: "Instagram",
+		href: "https://instagram.com",
+		icon: <Instagram />,
+	},
+	{
+		name: "Twitter",
+		href: "https://twitter.com",
+		icon: <Twitter />,
+	},
+	{
+		name: "LinkedIn",
+		href: "https://linkedin.com",
+		icon: <Linkedin />,
+	},
+];
+
 export const SocialLinks = () => {
 	return (
 		<section id="social-links">
-			<Link href="#" className="social-link">
-				<ItemFlipWrapper>
-					Facebook
-					<ItemFlipAnimation text={<Facebook />} hoverText={<ArrowUpRight />} />
-				</ItemFlipWrapper>
-			</Link>
-
-			<Link href="#" className="social-link">
-				<ItemFlipWrapper>
-					Instagram
-					<ItemFlipAnimation
-						text={<Instagram />}
-						hoverText={<ArrowUpRight />}
-					/>
-				</ItemFlipWrapper>
-			</Link>
-
-			<Link href="#" className="social-link">
-				<ItemFlipWrapper>
-					Twitter
-					<ItemFlipAnimation text={<Twitter />} hoverText={<ArrowUpRight />} />
-				</ItemFlipWrapper>
-			</Link>
-
-			<Link href="#" className="social-link">
-				<ItemFlipWrapper>
-					LinkedIn
-					<ItemFlipAnimation text={<Linkedin />} hoverText={<ArrowUpRight />} />
-				</ItemFlipWrapper>
-			</Link>
+			{socialLinks.map((social, index) => (
+				<a
+					key={index}
+					href={social.href}
+					className="social-link"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<ItemFlipWrapper>
+						{social.name}
+						<ItemFlipAnimation
+							text={social.icon}
+							hoverText={<ArrowUpRight />}
+						/>
+					</ItemFlipWrapper>
+				</a>
+			))}
 		</section>
 	);
 };

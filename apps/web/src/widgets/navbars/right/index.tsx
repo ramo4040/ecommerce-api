@@ -6,6 +6,16 @@ import Image from "next/image";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
+	Command,
+	CommandDialog,
+	CommandEmpty,
+	CommandGroup,
+	CommandInput,
+	CommandItem,
+	CommandList,
+	CommandSeparator,
+} from "@/components/ui/command";
+import {
 	Sheet,
 	SheetContent,
 	SheetHeader,
@@ -16,15 +26,33 @@ import { ProductsData } from "@/entities/product";
 
 export const HeroRightNavbar = () => {
 	const p = ProductsData[0];
-	const [open, setOpen] = useState(false);
+	const [cartOpen, setCartOpen] = useState(false);
+	const [searchOpen, setSearchOpen] = useState(false);
 
 	return (
 		<div id="hero-right-navbar">
-			<Button variant="ghost" size="icon">
+			<Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)}>
 				<Search strokeWidth={1.5} />
 			</Button>
 
-			<Sheet open={open} onOpenChange={setOpen}>
+			<CommandDialog open={searchOpen} onOpenChange={setSearchOpen}>
+				<Command>
+					<CommandInput placeholder="Type a command or search..." />
+					<CommandList>
+						<CommandEmpty>No results found.</CommandEmpty>
+						<CommandGroup heading="Products">
+							<CommandItem>Kapp</CommandItem>
+							<CommandItem>Skala</CommandItem>
+							<CommandItem>Fjord</CommandItem>
+							<CommandItem>Sona</CommandItem>
+							<CommandItem>Alba</CommandItem>
+							<CommandItem>Lykke</CommandItem>
+						</CommandGroup>
+					</CommandList>
+				</Command>
+			</CommandDialog>
+
+			<Sheet open={cartOpen} onOpenChange={setCartOpen}>
 				<SheetTrigger>
 					<Button variant="ghost" size="icon" className="shopping-cart-btn">
 						<ShoppingCart strokeWidth={1.5} />
@@ -39,7 +67,7 @@ export const HeroRightNavbar = () => {
 								variant="ghost"
 								size="icon"
 								className="close-btn"
-								onClick={() => setOpen(false)}
+								onClick={() => setCartOpen(false)}
 							>
 								<X strokeWidth={1.5} />
 							</Button>

@@ -1,0 +1,140 @@
+.product-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 0.75;
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+
+  .title {
+    --size: var(--spacing-16);
+
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: var(--spacing-8) var(--spacing-10);
+    background: var(--background);
+    border-bottom-right-radius: var(--radius-xl);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    width: fit-content;
+
+    transition: var(--transition-expressive-default-spatial);
+
+    svg {
+      position: absolute;
+      right: var(--spacing-6);
+      inset-block-start: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      visibility: hidden;
+      height: 14px;
+      transition: opacity 0.2s;
+    }
+
+    &::after {
+      content: "";
+      width: var(--size);
+      aspect-ratio: 1;
+
+      background-image: radial-gradient(
+        circle at 100% 100%,
+        transparent var(--size),
+        var(--background) var(--size)
+      );
+
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline-start: 0;
+    }
+
+    &::before {
+      content: "";
+      width: var(--size);
+      aspect-ratio: 1;
+
+      background-image: radial-gradient(
+        circle at 100% 100%,
+        transparent var(--size),
+        var(--background) var(--size)
+      );
+
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 100%;
+    }
+  }
+
+  .discount {
+    z-index: 3;
+    background: var(--foreground);
+    color: var(--background);
+    padding: var(--spacing-4) var(--spacing-8);
+    border-radius: var(--radius-sm);
+    position: absolute;
+    top: var(--spacing-24);
+    right: var(--spacing-24);
+    font-size: 12px;
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    align-items: end;
+    padding: var(--spacing-18);
+    background: rgb(255 255 255 / 0%);
+    backdrop-filter: blur(8px);
+    height: 100%;
+    opacity: 0;
+    border-radius: var(--radius-lg);
+    transition: var(--transition-expressive-default-spatial);
+
+    .details {
+      width: 100%;
+      border-radius: var(--radius-md);
+      background: var(--card);
+      padding: var(--spacing-16);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transform: translateY(150%);
+      transition: var(--transition-expressive-default-spatial);
+
+      .prices {
+        display: flex;
+        gap: var(--spacing-8);
+
+        :last-child {
+          color: var(--muted-foreground);
+          text-decoration: line-through;
+        }
+      }
+
+      a {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+    }
+  }
+
+  &:hover {
+    .title {
+      padding-right: 2rem;
+      svg {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .container {
+      opacity: 1;
+
+      .details {
+        transform: translateY(0);
+      }
+    }
+  }
+}

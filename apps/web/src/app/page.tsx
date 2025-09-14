@@ -44,11 +44,6 @@ export default function Home() {
 
 			<HomeSections />
 
-			{/* 
-
-
-
-
 			<section className="home-page-separator">
 				<h2>About Us</h2>
 			</section>
@@ -57,7 +52,7 @@ export default function Home() {
 
 			<SocialLinks />
 
-			<Footer /> */}
+			<Footer />
 		</main>
 	);
 }

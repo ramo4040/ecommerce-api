@@ -1,21 +1,25 @@
 #social-links {
-	display: flex;
-	gap: var(--spacing-12);
+  display: flex;
+  gap: var(--spacing-12);
 
-	> * {
-		flex: 1;
-		border-radius: var(--radius-md);
-		background: var(--color-card-bg);
-		font-size: 15px;
+  > * {
+    flex: 1;
+    border-radius: var(--radius-md);
+    background: var(--color-card-bg);
+    font-size: 15px;
 
-		> div {
-			padding: var(--spacing-16) var(--spacing-24);
-			justify-content: space-between;
-		}
+    > div {
+      padding: var(--spacing-16) var(--spacing-24);
+      justify-content: space-between;
+    }
 
-		svg {
-			height: 16px;
-			stroke-width: 1.5;
-		}
-	}
+    svg {
+      height: 16px;
+      stroke-width: 1.5;
+    }
+  }
+
+  @media (width <= 768px) {
+    flex-direction: column;
+  }
 }

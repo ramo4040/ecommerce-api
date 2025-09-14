@@ -16,7 +16,7 @@ export default function Home() {
 				<AnnouncementBanner />
 				<HeroSlider />
 			</section>
-
+			{/* 
 			<section id="features-section">
 				<div className="feature">
 					<Car /> <h4>Free Shipping over 500€</h4>
@@ -52,7 +52,7 @@ export default function Home() {
 
 			<SocialLinks />
 
-			<Footer />
+			<Footer /> */}
 		</main>
 	);
 }

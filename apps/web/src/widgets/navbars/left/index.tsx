@@ -1,6 +1,5 @@
 import "./style.css";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import {
 	ItemFlipAnimation,
@@ -12,10 +11,10 @@ import {
 	HoverCardContent,
 	HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { categoriesData } from "@/entities/categories";
 import { Logo } from "@/widgets";
+import { Collections } from "../collections";
 
-const abouts = [
+export const abouts = [
 	{ name: "About", href: "/about" },
 	{ name: "Contact", href: "/contact" },
 	{ name: "FAQ", href: "/faq" },
@@ -46,27 +45,7 @@ export const HeroLeftNavbar = () => {
 						</HoverCardTrigger>
 
 						<HoverCardContent className="menu-card-content">
-							{categoriesData.map((collection) => (
-								<ItemFlipWrapper key={collection.name}>
-									<Link href={{ href: collection.slug }} className="item">
-										<div className="img-wrapper">
-											<Image
-												src={`/images/${collection.image}` || ""}
-												alt={collection.meta_title || collection.name}
-												fill
-												style={{ objectFit: "cover" }}
-											/>
-										</div>
-
-										<h4>{collection.name}</h4>
-
-										<ItemFlipAnimation
-											text={<ArrowRight size={14} />}
-											className="icon"
-										/>
-									</Link>
-								</ItemFlipWrapper>
-							))}
+							<Collections />
 						</HoverCardContent>
 					</HoverCard>
 				</li>

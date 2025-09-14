@@ -13,6 +13,7 @@
 	min-height: calc(100vh - (var(--spacing-12) * 2));
 	display: grid;
 	grid-template-rows: auto 1fr;
+	grid-auto-columns: 100%;
 	gap: var(--spacing-12);
 }
 

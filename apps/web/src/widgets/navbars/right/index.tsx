@@ -1,10 +1,20 @@
 "use client";
 
 import "./style.css";
-import { Search, ShoppingCart, X } from "lucide-react";
+import { ArrowRight, Menu, Search, ShoppingCart, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import {
+	Command,
+	CommandDialog,
+	CommandEmpty,
+	CommandGroup,
+	CommandInput,
+	CommandItem,
+	CommandList,
+} from "@/components/ui/command";
 import {
 	Sheet,
 	SheetContent,
@@ -13,19 +23,45 @@ import {
 	SheetTrigger,
 } from "@/components/ui/sheet";
 import { ProductsData } from "@/entities/product";
+import { Collections } from "../collections";
+
+const pageLinks = [
+	{ name: "Shop", href: "#" },
+	{ name: "About", href: "#" },
+	{ name: "Blog", href: "#" },
+];
 
 export const HeroRightNavbar = () => {
 	const p = ProductsData[0];
-	const [open, setOpen] = useState(false);
+	const [cartOpen, setCartOpen] = useState(false);
+	const [searchOpen, setSearchOpen] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
 		<div id="hero-right-navbar">
-			<Button variant="ghost" size="icon">
+			<Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)}>
 				<Search strokeWidth={1.5} />
 			</Button>
 
-			<Sheet open={open} onOpenChange={setOpen}>
-				<SheetTrigger>
+			<CommandDialog open={searchOpen} onOpenChange={setSearchOpen}>
+				<Command>
+					<CommandInput placeholder="Type a command or search..." />
+					<CommandList>
+						<CommandEmpty>No results found.</CommandEmpty>
+						<CommandGroup heading="Products">
+							<CommandItem>Kapp</CommandItem>
+							<CommandItem>Skala</CommandItem>
+							<CommandItem>Fjord</CommandItem>
+							<CommandItem>Sona</CommandItem>
+							<CommandItem>Alba</CommandItem>
+							<CommandItem>Lykke</CommandItem>
+						</CommandGroup>
+					</CommandList>
+				</Command>
+			</CommandDialog>
+
+			<Sheet open={cartOpen} onOpenChange={setCartOpen}>
+				<SheetTrigger asChild>
 					<Button variant="ghost" size="icon" className="shopping-cart-btn">
 						<ShoppingCart strokeWidth={1.5} />
 						<p>(0)</p>
@@ -39,7 +75,7 @@ export const HeroRightNavbar = () => {
 								variant="ghost"
 								size="icon"
 								className="close-btn"
-								onClick={() => setOpen(false)}
+								onClick={() => setCartOpen(false)}
 							>
 								<X strokeWidth={1.5} />
 							</Button>
@@ -97,6 +133,42 @@ export const HeroRightNavbar = () => {
 					</div>
 				</SheetContent>
 			</Sheet>
+
+			<menu id="menu-container">
+				<Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+					<SheetTrigger asChild>
+						<Button variant="ghost" size="icon" className="menu-btn">
+							<Menu />
+						</Button>
+					</SheetTrigger>
+					<SheetContent id="menu-sheet">
+						<div>
+							<Button
+								variant="ghost"
+								onClick={() => setMenuOpen(false)}
+								className="close-btn"
+							>
+								<SheetTitle>Close</SheetTitle>
+							</Button>
+							<div className="items-link-container">
+								<Collections className="collections" />
+								{pageLinks.map((e) => {
+									return (
+										<Link
+											key={e.name}
+											href={{ href: e.href }}
+											className="item-link"
+										>
+											{e.name}
+											<ArrowRight />
+										</Link>
+									);
+								})}
+							</div>
+						</div>
+					</SheetContent>
+				</Sheet>
+			</menu>
 		</div>
 	);
 };

@@ -55,10 +55,7 @@
 #shopping-cart-sheet {
   --transparent-bg-color: #00000047;
 
-  height: 97vh;
-  border-radius: var(--radius-lg);
-  margin-right: var(--spacing-14);
-  margin-block: auto;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
   padding: var(--spacing-12);
 
   button {
@@ -183,6 +180,98 @@
       .total {
         display: flex;
         justify-content: space-between;
+      }
+    }
+  }
+}
+
+#menu-container {
+  display: none;
+
+  @media (width < 768px) {
+    display: block;
+  }
+}
+
+#menu-sheet {
+  padding: var(--spacing-12);
+  min-width: 100vw;
+
+  > button {
+    display: none;
+  }
+
+  > div {
+    background: var(--color-card-bg);
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-12);
+
+    .close-btn {
+      --size: var(--spacing-16);
+      margin: calc(var(--spacing-12) * -1);
+
+      background: var(--background);
+      width: min-content;
+      margin-left: auto;
+      border-radius: 0 0 0 var(--radius-xl);
+      position: relative;
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        width: var(--size);
+        aspect-ratio: 1;
+      }
+
+      &::before {
+        background: radial-gradient(
+          circle at 0% 100%,
+          transparent var(--size),
+          var(--background) var(--size)
+        );
+        inset-inline-end: 0;
+        inset-block-start: 100%;
+      }
+
+      &::after {
+        background: radial-gradient(
+          circle at 0% 100%,
+          transparent var(--size),
+          var(--background) var(--size)
+        );
+        inset-inline-end: 100%;
+        inset-block-start: 0;
+      }
+    }
+
+    :not(:first-child) {
+      display: grid;
+      gap: var(--spacing-8);
+    }
+
+    .items-link-container {
+      .collections,
+      .item-link {
+        background: var(--color-card-bg-hover);
+      }
+
+      .item-link {
+        padding: var(--spacing-10) var(--spacing-4) var(--spacing-10)
+          var(--spacing-14);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        svg {
+          height: var(--spacing-14);
+        }
       }
     }
   }

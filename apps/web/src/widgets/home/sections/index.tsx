@@ -11,12 +11,14 @@ export const HomeSections = () => {
 	return (
 		<section id="home-sections">
 			<div className="first-category">
-				<Image
-					src={`/images/${firstCategory.image}`}
-					alt={firstCategory.meta_title || firstCategory.name}
-					fill
-					style={{ objectFit: "cover" }}
-				/>
+				<div className="image">
+					<Image
+						src={`/images/${firstCategory.image}`}
+						alt={firstCategory.meta_title || firstCategory.name}
+						fill
+						style={{ objectFit: "cover" }}
+					/>
+				</div>
 
 				<div className="details">
 					<h3>{firstCategory.name}</h3>

@@ -38,14 +38,16 @@ export default function Home() {
 
 			<HomeProductsSlider />
 
-			{/* 
-
-
 			<section className="home-page-separator">
 				<h2>Collections</h2>
 			</section>
 
 			<HomeSections />
+
+			{/* 
+
+
+
 
 			<section className="home-page-separator">
 				<h2>About Us</h2>

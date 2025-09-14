@@ -26,5 +26,13 @@
 		.product-size {
 			min-width: var(--product-width);
 		}
+
+		@media (width <= 1024px) {
+			--items-per-row: 3;
+		}
+
+		@media (width <= 768px) {
+			--items-per-row: 2;
+		}
 	}
 }

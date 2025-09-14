@@ -55,10 +55,7 @@
 #shopping-cart-sheet {
   --transparent-bg-color: #00000047;
 
-  height: 97vh;
-  border-radius: var(--radius-lg);
-  margin-right: var(--spacing-14);
-  margin-block: auto;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
   padding: var(--spacing-12);
 
   button {

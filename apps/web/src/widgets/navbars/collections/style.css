@@ -1,31 +1,31 @@
 #collections-card {
-  background: var(--color-card-bg);
-  padding: var(--spacing-8);
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-8);
-  width: 100%;
-  transition: background var(--transition-standard-slow-effects);
+	background: var(--color-card-bg);
+	padding: var(--spacing-8);
+	border-radius: var(--radius-lg);
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-8);
+	width: 100%;
+	transition: background var(--transition-standard-slow-effects);
 
-  &:hover {
-    background: var(--color-card-bg-hover);
-  }
+	&:hover {
+		background: var(--color-card-bg-hover);
+	}
 
-  .img-wrapper {
-    position: relative;
-    width: var(--spacing-48);
-    aspect-ratio: 1;
-    border-radius: var(--radius-md);
-    background: #cecece;
-    overflow: hidden;
-  }
+	.img-wrapper {
+		position: relative;
+		width: var(--spacing-48);
+		aspect-ratio: 1;
+		border-radius: var(--radius-md);
+		background: #cecece;
+		overflow: hidden;
+	}
 
-  h4 {
-    font-size: 14px;
-  }
+	h4 {
+		font-size: 14px;
+	}
 
-  .icon {
-    margin-left: auto;
-  }
+	.icon {
+		margin-left: auto;
+	}
 }

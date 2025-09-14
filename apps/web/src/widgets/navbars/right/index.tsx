@@ -1,8 +1,9 @@
 "use client";
 
 import "./style.css";
-import { Search, ShoppingCart, X } from "lucide-react";
+import { ArrowRight, Menu, Search, ShoppingCart, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,7 +14,6 @@ import {
 	CommandInput,
 	CommandItem,
 	CommandList,
-	CommandSeparator,
 } from "@/components/ui/command";
 import {
 	Sheet,
@@ -23,11 +23,19 @@ import {
 	SheetTrigger,
 } from "@/components/ui/sheet";
 import { ProductsData } from "@/entities/product";
+import { Collections } from "../collections";
+
+const pageLinks = [
+	{ name: "Shop", href: "#" },
+	{ name: "About", href: "#" },
+	{ name: "Blog", href: "#" },
+];
 
 export const HeroRightNavbar = () => {
 	const p = ProductsData[0];
 	const [cartOpen, setCartOpen] = useState(false);
 	const [searchOpen, setSearchOpen] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
 		<div id="hero-right-navbar">
@@ -53,7 +61,7 @@ export const HeroRightNavbar = () => {
 			</CommandDialog>
 
 			<Sheet open={cartOpen} onOpenChange={setCartOpen}>
-				<SheetTrigger>
+				<SheetTrigger asChild>
 					<Button variant="ghost" size="icon" className="shopping-cart-btn">
 						<ShoppingCart strokeWidth={1.5} />
 						<p>(0)</p>
@@ -125,6 +133,42 @@ export const HeroRightNavbar = () => {
 					</div>
 				</SheetContent>
 			</Sheet>
+
+			<menu id="menu-container">
+				<Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+					<SheetTrigger asChild>
+						<Button variant="ghost" size="icon" className="menu-btn">
+							<Menu />
+						</Button>
+					</SheetTrigger>
+					<SheetContent id="menu-sheet">
+						<div>
+							<Button
+								variant="ghost"
+								onClick={() => setMenuOpen(false)}
+								className="close-btn"
+							>
+								<SheetTitle>Close</SheetTitle>
+							</Button>
+							<div className="items-link-container">
+								<Collections className="collections" />
+								{pageLinks.map((e) => {
+									return (
+										<Link
+											key={e.name}
+											href={{ href: e.href }}
+											className="item-link"
+										>
+											{e.name}
+											<ArrowRight />
+										</Link>
+									);
+								})}
+							</div>
+						</div>
+					</SheetContent>
+				</Sheet>
+			</menu>
 		</div>
 	);
 };

@@ -1,8 +1,14 @@
 #navbars-container {
-	position: absolute;
-	z-index: 10;
-	width: 100%;
-	inset-block-start: 0;
-	display: flex;
-	justify-content: space-between;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  inset-block-start: 0;
+  display: flex;
+  justify-content: space-between;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    border-top: var(--spacing-12) solid var(--background);
+  }
 }

@@ -3,41 +3,8 @@
 	background: var(--background);
 	padding: 0 var(--spacing-18) var(--spacing-4) var(--spacing-4);
 	border-radius: 0 0 0 var(--radius-2xl);
-	--size: var(--radius-2xl);
 	display: flex;
 	gap: var(--spacing-4);
-
-	&::before {
-		content: "";
-		width: var(--size);
-		aspect-ratio: 1;
-
-		background-image: radial-gradient(
-			circle at 0% 100%,
-			transparent var(--size),
-			var(--background) var(--size)
-		);
-
-		position: absolute;
-		inset-block-start: 100%;
-		inset-inline-end: 0;
-	}
-
-	&::after {
-		content: "";
-		width: var(--size);
-		aspect-ratio: 1;
-
-		background-image: radial-gradient(
-			circle at 0% 100%,
-			transparent var(--size),
-			var(--background) var(--size)
-		);
-
-		position: absolute;
-		inset-block-start: 0px;
-		inset-inline-end: 100%;
-	}
 
 	button {
 		cursor: pointer;

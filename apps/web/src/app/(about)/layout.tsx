@@ -1,5 +1,6 @@
 import "./style.css";
 import type { Metadata } from "next";
+import { CornerElement } from "@/components/corner-element";
 import DynamicHeroImage from "@/components/dynamic-hero-image";
 import { Footer, HeroNavbars, SocialLinks } from "@/widgets";
 
@@ -21,6 +22,9 @@ const Layout = ({ children }: LayoutProps) => {
 				<div className="image">
 					<div>
 						<DynamicHeroImage />
+						<CornerElement position="bottom-right">
+							We are {process.env.NEXT_PUBLIC_COMPANY_NAME}
+						</CornerElement>
 					</div>
 				</div>
 

@@ -3,6 +3,7 @@ import {
 	ItemFlipWrapper,
 } from "@/components/item-flip-animation";
 import "./style.css";
+import Link from "next/link";
 
 export const Logo = ({
 	hoverText = "Home",
@@ -12,7 +13,8 @@ export const Logo = ({
 	isDark?: boolean;
 }) => {
 	return (
-		<div
+		<Link
+			href={{ pathname: "/" }}
 			id="logo"
 			style={
 				{
@@ -22,8 +24,11 @@ export const Logo = ({
 		>
 			<ItemFlipWrapper>
 				<div className="logo-icon" />
-				<ItemFlipAnimation text="Korsiya" hoverText={hoverText} />
+				<ItemFlipAnimation
+					text={process.env.NEXT_PUBLIC_COMPANY_NAME}
+					hoverText={hoverText}
+				/>
 			</ItemFlipWrapper>
-		</div>
+		</Link>
 	);
 };

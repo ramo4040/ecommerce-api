@@ -5,6 +5,7 @@ import { ArrowRight, Menu, Search, ShoppingCart, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { CornerElement } from "@/components/corner-element";
 import { Button } from "@/components/ui/button";
 import {
 	Command,
@@ -38,7 +39,7 @@ export const HeroRightNavbar = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
-		<div id="hero-right-navbar">
+		<CornerElement position="top-right" size="xl" id="hero-right-navbar">
 			<Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)}>
 				<Search strokeWidth={1.5} />
 			</Button>
@@ -169,6 +170,6 @@ export const HeroRightNavbar = () => {
 					</SheetContent>
 				</Sheet>
 			</menu>
-		</div>
+		</CornerElement>
 	);
 };

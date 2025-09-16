@@ -1,6 +1,7 @@
 import "./style.css";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { CornerElement } from "@/components/corner-element";
 import {
 	ItemFlipAnimation,
 	ItemFlipWrapper,
@@ -22,7 +23,7 @@ export const abouts = [
 
 export const HeroLeftNavbar = () => {
 	return (
-		<nav id="hero-left-navbar">
+		<CornerElement position="top-left" size="xl" id="hero-left-navbar">
 			<ul>
 				<li>
 					<Logo />
@@ -30,7 +31,7 @@ export const HeroLeftNavbar = () => {
 
 				<li>
 					<ItemFlipWrapper>
-						<Link href={{ href: "/shop" }}>
+						<Link href={{ pathname: "/shop" }}>
 							<ItemFlipAnimation text="Shop" />
 						</Link>
 					</ItemFlipWrapper>
@@ -76,7 +77,7 @@ export const HeroLeftNavbar = () => {
 
 				<li>
 					<ItemFlipWrapper>
-						<Link href={{ href: "/blog" }}>
+						<Link href={{ pathname: "/blog" }}>
 							<ItemFlipAnimation text="Blog" />
 						</Link>
 					</ItemFlipWrapper>
@@ -86,6 +87,6 @@ export const HeroLeftNavbar = () => {
 					<ThemeToggle />
 				</li>
 			</ul>
-		</nav>
+		</CornerElement>
 	);
 };

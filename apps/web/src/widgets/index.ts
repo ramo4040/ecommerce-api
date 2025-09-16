@@ -1,7 +1,7 @@
 export { Footer } from "./footer";
 export { AboutSection } from "./home/about-section";
-export { AnnouncementBanner } from "./home/announcement-banner";
 export { HeroSlider } from "./home/hero-slider";
+export { Marquee } from "./home/marquee";
 export { HomeSections } from "./home/sections";
 export { Logo } from "./logo";
 export { HeroNavbars } from "./navbars";

@@ -60,7 +60,7 @@ export const HeroLeftNavbar = () => {
 						<HoverCardContent className="menu-card-content about">
 							{abouts.map((about) => (
 								<ItemFlipWrapper key={about.name}>
-									<Link href={{ href: about.href }} className="item">
+									<Link href={{ pathname: about.href }} className="item">
 										<h4>{about.name}</h4>
 
 										<ItemFlipAnimation

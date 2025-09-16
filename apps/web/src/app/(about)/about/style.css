@@ -1,0 +1,60 @@
+#about-page {
+  display: grid;
+  gap: var(--spacing-12);
+
+  > * {
+    border-radius: var(--radius-lg);
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-64);
+    background-color: var(--color-card-bg);
+
+    h1 {
+      line-height: 1.2;
+      font-size: var(--spacing-40);
+    }
+
+    p {
+      color: var(--muted-foreground);
+      font-size: var(--spacing-16);
+    }
+  }
+
+  .company-presentation {
+    /* 3 gaps of 12 becuase we have paddint block and gap */
+    height: calc(90vh - var(--spacing-12) * 3);
+  }
+
+  .company-marquee {
+    height: 10vh;
+    margin-top: 0;
+
+    .scrolling-container {
+      width: 90%;
+    }
+
+    .marquee-content {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-32);
+
+      .marquee-item {
+        width: 4rem;
+        height: 2rem;
+        background: var(--secondary);
+        border-radius: var(--radius-sm);
+      }
+    }
+  }
+
+  .section-title {
+    padding: var(--spacing-18);
+    background: var(--color-card-bg);
+    display: grid;
+    place-content: center;
+  }
+}

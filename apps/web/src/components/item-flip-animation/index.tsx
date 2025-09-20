@@ -28,7 +28,6 @@ export const ItemFlipAnimation: FC<FlipAnimationProps> = ({
 
 export const ItemFlipWrapper: FC<FlipWrapperProps> = ({
 	children,
-	className,
 	hasIcon = false,
 	...props
 }) => {

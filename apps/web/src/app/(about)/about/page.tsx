@@ -13,19 +13,6 @@ const Page = () => {
 				</p>
 			</section>
 
-			<section>
-				<Marquee className="company-marquee">
-					<div className="marquee-content">
-						<div className="marquee-item" />
-						<div className="marquee-item" />
-						<div className="marquee-item" />
-						<div className="marquee-item" />
-						<div className="marquee-item" />
-						<div className="marquee-item" />
-					</div>
-				</Marquee>
-			</section>
-
 			<section className="section-title">Our Mission</section>
 
 			<section className="our-mission content-wrapper">

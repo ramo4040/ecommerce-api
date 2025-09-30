@@ -1,64 +1,64 @@
 #faq-wrapper {
-  display: grid;
-  gap: var(--spacing-8);
-  > header {
-    padding: clamp(var(--spacing-24), 5vw, var(--spacing-64));
-    background: var(--color-card-bg);
-    h1 {
-      font-size: var(--spacing-40);
-    }
+	display: grid;
+	gap: var(--spacing-8);
+	> header {
+		padding: clamp(var(--spacing-24), 5vw, var(--spacing-64));
+		background: var(--color-card-bg);
+		h1 {
+			font-size: var(--spacing-40);
+		}
 
-    p {
-      font-size: var(--spacing-16);
-      color: var(--muted-foreground);
-      width: 70%;
-    }
-  }
+		p {
+			font-size: var(--spacing-16);
+			color: var(--muted-foreground);
+			width: 70%;
+		}
+	}
 
-  > header,
-  .category-list > * {
-    border-radius: var(--radius-lg);
-  }
+	> header,
+	.category-list > * {
+		border-radius: var(--radius-lg);
+	}
 
-  .faq-list,
-  .category-list {
-    display: grid;
-    gap: var(--spacing-8);
-  }
+	.faq-list,
+	.category-list {
+		display: grid;
+		gap: var(--spacing-8);
+	}
 
-  .faq-list {
-    .faq-category {
-      font-size: var(--spacing-16);
-      padding: var(--spacing-24);
-      background: var(--color-card-bg-hover);
-    }
+	.faq-list {
+		.faq-category {
+			font-size: var(--spacing-16);
+			padding: var(--spacing-24);
+			background: var(--color-card-bg-hover);
+		}
 
-    [data-slot="accordion-trigger"] {
-      padding: var(--spacing-24);
-      background: var(--color-card-bg);
-      cursor: pointer;
+		[data-slot="accordion-trigger"] {
+			padding: var(--spacing-24);
+			background: var(--color-card-bg);
+			cursor: pointer;
 
-      &[aria-expanded="true"] {
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-    }
+			&[aria-expanded="true"] {
+				border-bottom-right-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+		}
 
-    [data-slot="accordion-content"] {
-      background: var(--color-card-bg);
-      color: var(--muted-foreground);
-      padding-inline: var(--spacing-24);
-      border-bottom-right-radius: var(--radius-lg);
-      border-bottom-left-radius: var(--radius-lg);
-    }
+		[data-slot="accordion-content"] {
+			background: var(--color-card-bg);
+			color: var(--muted-foreground);
+			padding-inline: var(--spacing-24);
+			border-bottom-right-radius: var(--radius-lg);
+			border-bottom-left-radius: var(--radius-lg);
+		}
 
-    [data-slot="accordion-item"]:hover {
-      [data-slot="accordion-trigger"] {
-        background: var(--color-card-bg-hover);
-      }
-      [data-slot="accordion-content"] {
-        background: var(--color-card-bg-hover);
-      }
-    }
-  }
+		[data-slot="accordion-item"]:hover {
+			[data-slot="accordion-trigger"] {
+				background: var(--color-card-bg-hover);
+			}
+			[data-slot="accordion-content"] {
+				background: var(--color-card-bg-hover);
+			}
+		}
+	}
 }

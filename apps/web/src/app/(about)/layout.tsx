@@ -20,12 +20,10 @@ const Layout = ({ children }: LayoutProps) => {
 
 			<section className="content-wrapper">
 				<div className="image">
-					<div>
-						<DynamicHeroImage />
-						<CornerElement position="bottom-right">
-							We are {process.env.NEXT_PUBLIC_COMPANY_NAME}
-						</CornerElement>
-					</div>
+					<DynamicHeroImage />
+					<CornerElement position="bottom-right">
+						We are {process.env.NEXT_PUBLIC_COMPANY_NAME}
+					</CornerElement>
 				</div>
 
 				<div className="content">{children}</div>

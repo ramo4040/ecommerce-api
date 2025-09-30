@@ -28,7 +28,7 @@ import { Collections } from "../collections";
 
 const pageLinks = [
 	{ name: "Shop", href: "#" },
-	{ name: "About", href: "#" },
+	{ name: "About", href: "/about" },
 	{ name: "Blog", href: "#" },
 ];
 
@@ -157,7 +157,7 @@ export const HeroRightNavbar = () => {
 									return (
 										<Link
 											key={e.name}
-											href={{ href: e.href }}
+											href={{ pathname: e.href }}
 											className="item-link"
 										>
 											{e.name}

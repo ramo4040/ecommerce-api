@@ -1,141 +1,141 @@
 .corner-element {
-	position: absolute;
-	background: var(--background);
-	padding: 8px 16px 12px;
-	font-size: var(--spacing-14);
+  position: absolute;
+  background: var(--background);
+  padding: 8px 16px 12px;
+  font-size: var(--spacing-14);
 
-	&::before,
-	&::after {
-		content: "";
-		position: absolute;
-		width: var(--corner-size);
-		aspect-ratio: 1;
-	}
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: var(--corner-size);
+    aspect-ratio: 1;
+  }
 }
 
 /* Size variants */
 .corner-size-sm {
-	--corner-size: 0.75rem;
+  --corner-size: 0.75rem;
 }
 
 .corner-size-md {
-	--corner-size: 1rem;
+  --corner-size: 1rem;
 }
 
 .corner-size-lg {
-	--corner-size: 1.25rem;
+  --corner-size: 1.25rem;
 }
 
 .corner-size-xl {
-	--corner-size: 16px;
+  --corner-size: 16px;
 }
 
 .corner-top-right {
-	top: 0;
-	right: 0;
-	border-bottom-left-radius: var(--radius-2xl);
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: var(--radius-2xl);
 
-	&::after {
-		inset-block-start: 100%;
-		inset-inline-end: 0;
+  &::after {
+    inset-block-start: 100%;
+    inset-inline-end: 0;
 
-		background-image: radial-gradient(
-			circle at 0% 100%,
-			transparent var(--corner-size),
-			var(--background) var(--corner-size)
-		);
-	}
+    background-image: radial-gradient(
+      circle at 0% 100%,
+      transparent var(--corner-size),
+      var(--background) var(--corner-size)
+    );
+  }
 
-	&::before {
-		inset-block-start: 0px;
-		inset-inline-end: 100%;
+  &::before {
+    inset-block-start: 0px;
+    inset-inline-end: 100%;
 
-		background-image: radial-gradient(
-			circle at 0% 100%,
-			transparent var(--corner-size),
-			var(--background) var(--corner-size)
-		);
-	}
+    background-image: radial-gradient(
+      circle at 0% 100%,
+      transparent var(--corner-size),
+      var(--background) var(--corner-size)
+    );
+  }
 }
 
 .corner-top-left {
-	top: 0;
-	left: 0;
-	border-bottom-right-radius: var(--radius-2xl);
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: var(--radius-2xl);
 
-	&::after {
-		inset-block-start: 0;
-		inset-inline-start: 100%;
+  &::after {
+    inset-block-start: 0;
+    inset-inline-start: 100%;
 
-		background-image: radial-gradient(
-			circle at 100% 100%,
-			transparent var(--corner-size),
-			var(--background) var(--corner-size)
-		);
-	}
+    background-image: radial-gradient(
+      circle at 100% 100%,
+      transparent var(--corner-size),
+      var(--background) var(--corner-size)
+    );
+  }
 
-	&::before {
-		inset-block-start: 100%;
-		inset-inline-start: 0;
+  &::before {
+    inset-block-start: 100%;
+    inset-inline-start: 0;
 
-		background-image: radial-gradient(
-			circle at 100% 100%,
-			transparent var(--corner-size),
-			var(--background) var(--corner-size)
-		);
-	}
+    background-image: radial-gradient(
+      circle at 100% 100%,
+      transparent var(--corner-size),
+      var(--background) var(--corner-size)
+    );
+  }
 }
 
 .corner-bottom-right {
-	bottom: 0;
-	right: 0;
-	border-top-left-radius: var(--radius-2xl);
+  bottom: 0;
+  right: 0;
+  border-top-left-radius: var(--radius-2xl);
 
-	&::after {
-		inset-inline-end: 100%;
-		inset-block-end: 0;
+  &::after {
+    inset-inline-end: 100%;
+    inset-block-end: 0;
 
-		background-image: radial-gradient(
-			circle at 0% 0%,
-			transparent var(--corner-size),
-			var(--background) var(--corner-size)
-		);
-	}
+    background-image: radial-gradient(
+      circle at 0% 0%,
+      transparent var(--corner-size),
+      var(--background) var(--corner-size)
+    );
+  }
 
-	&::before {
-		inset-inline-end: 0;
-		inset-block-end: 100%;
+  &::before {
+    inset-inline-end: 0;
+    inset-block-end: 100%;
 
-		background-image: radial-gradient(
-			circle at 0% 0%,
-			transparent var(--corner-size),
-			var(--background) var(--corner-size)
-		);
-	}
+    background-image: radial-gradient(
+      circle at 0% 0%,
+      transparent var(--corner-size),
+      var(--background) var(--corner-size)
+    );
+  }
 }
 
 .corner-bottom-left {
-	bottom: 0;
-	left: 0;
-	border-top-right-radius: var(--radius-2xl);
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: var(--radius-2xl);
 
-	&::after {
-		right: 100%;
-		bottom: 0;
-		background-image: radial-gradient(
-			circle at 100% 0%,
-			transparent var(--corner-size),
-			var(--background) var(--corner-size)
-		);
-	}
+  &::after {
+    right: 100%;
+    bottom: 0;
+    background-image: radial-gradient(
+      circle at 100% 0%,
+      transparent var(--corner-size),
+      var(--background) var(--corner-size)
+    );
+  }
 
-	&::before {
-		right: 0;
-		bottom: 100%;
-		background-image: radial-gradient(
-			circle at 0% 100%,
-			transparent var(--corner-size),
-			var(--background) var(--corner-size)
-		);
-	}
+  &::before {
+    right: 0;
+    bottom: 100%;
+    background-image: radial-gradient(
+      circle at 0% 100%,
+      transparent var(--corner-size),
+      var(--background) var(--corner-size)
+    );
+  }
 }

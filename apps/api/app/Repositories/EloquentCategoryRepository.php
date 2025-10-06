@@ -36,12 +36,19 @@ class EloquentCategoryRepository implements CategoryRepository
 
     public function update(int $id, array $data): Category
     {
-        $category = $this->category->findOrFail($id);
-        return $category->update($data);
+        $category = $this->find($id);
+        $category->update($data);
+        return $category;
     }
 
     public function delete(int $id): bool
     {
-        return $this->category->where('id', $id)->delete() > 0;
+        $category = $this->category->find($id);
+
+        if (!$category) {
+            return false;
+        }
+
+        return $category->delete();
     }
 }

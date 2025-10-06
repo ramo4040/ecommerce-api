@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Category extends Model
@@ -26,7 +27,21 @@ class Category extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'is_featured' => 'boolean',
+        'sort_order' => 'integer'
     ];
+
+    protected $hidden = [
+        'image'
+    ];
+
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute()
+    {
+        return $this->image
+            ? Storage::url($this->image)
+            : null;
+    }
 
     protected function setNameAttribute($value)
     {
@@ -36,6 +51,17 @@ class Category extends Model
 
     public function products()
     {
-        return $this->hasMany(Products::class);
+        return $this->hasMany(Product::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($category) {
+            if ($category->image) {
+                Storage::disk('public')->delete($category->image);
+            }
+        });
     }
 }

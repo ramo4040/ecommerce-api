@@ -31,9 +31,9 @@ class CategoryController extends Controller
         return ApiResponse::created($data, __('messages.category_created'));
     }
 
-    public function update(CategoryRequest $request, string $id)
+    public function update(CategoryRequest $request, string $category)
     {
-        $data = $this->categoryService->update($id, $request->validated());
+        $data = $this->categoryService->update($category, $request->validated());
         return ApiResponse::success($data, __('messages.category_updated'));
     }
 

@@ -7,13 +7,15 @@ import {
 	ItemFlipAnimation,
 	ItemFlipWrapper,
 } from "@/components/item-flip-animation";
-import { categoriesData } from "@/entities/categories";
+import { useCategories } from "@/entities/categories";
 
-export const Collections: FC<ComponentProps<"a">> = ({
+export const Collections: FC<ComponentProps<"a">> = async ({
 	className,
 	...props
 }) => {
-	return categoriesData.map((collection) => (
+	const { data } = await useCategories();
+
+	return data?.map((collection) => (
 		<ItemFlipWrapper key={collection.name}>
 			<Link
 				className={className}
@@ -23,7 +25,7 @@ export const Collections: FC<ComponentProps<"a">> = ({
 			>
 				<div className="img-wrapper">
 					<Image
-						src={`/images/${collection.image}` || ""}
+						src={`${process.env.NEXT_PUBLIC_API_URL}${collection.image_url}`}
 						alt={collection.meta_title || collection.name}
 						fill
 						style={{ objectFit: "cover" }}

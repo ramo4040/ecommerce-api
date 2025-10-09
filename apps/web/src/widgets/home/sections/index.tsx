@@ -1,19 +1,22 @@
 import Image from "next/image";
 import "./style.css";
 import Link from "next/link";
-import { categoriesData } from "@/entities/categories";
+import { useCategories } from "@/entities/categories";
 
-export const HomeSections = () => {
-	const firstCategory = categoriesData[0];
-	const secondCategory = categoriesData[1];
-	const thirdCategory = categoriesData[2];
+export const HomeSections = async () => {
+	const { data } = await useCategories();
+	if (!data) return null;
+
+	const firstCategory = data[0];
+	const secondCategory = data[1];
+	const thirdCategory = data[2];
 
 	return (
 		<section id="home-sections">
 			<div className="first-category">
 				<div className="image">
 					<Image
-						src={`/images/${firstCategory.image}`}
+						src={`${process.env.NEXT_PUBLIC_API_URL}${firstCategory.image_url}`}
 						alt={firstCategory.meta_title || firstCategory.name}
 						fill
 						style={{ objectFit: "cover" }}
@@ -33,7 +36,7 @@ export const HomeSections = () => {
 				<div className="second-category">
 					<div className="image">
 						<Image
-							src={`/images/${secondCategory.image}`}
+							src={`${process.env.NEXT_PUBLIC_API_URL}${secondCategory.image_url}`}
 							alt={secondCategory.meta_title || secondCategory.name}
 							fill
 							style={{ objectFit: "cover" }}
@@ -52,7 +55,7 @@ export const HomeSections = () => {
 				<div className="third-category">
 					<div className="image">
 						<Image
-							src={`/images/${thirdCategory.image}`}
+							src={`${process.env.NEXT_PUBLIC_API_URL}${thirdCategory.image_url}`}
 							alt={thirdCategory.meta_title || thirdCategory.name}
 							fill
 							style={{ objectFit: "cover" }}

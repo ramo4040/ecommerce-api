@@ -4,10 +4,9 @@ import "./style.css";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { type ComponentProps, type FC, useState } from "react";
 import { SliderBtn } from "@/components/slider-btn";
 import { Button } from "@/components/ui/button";
-import { HeroNavbars } from "@/widgets";
 
 const sliders = [
 	{
@@ -36,7 +35,7 @@ const sliders = [
 	},
 ];
 
-export const HeroSlider = () => {
+export const HeroSlider: FC<ComponentProps<"div">> = ({ children }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const totalImages = sliders.length;
 
@@ -50,7 +49,8 @@ export const HeroSlider = () => {
 
 	return (
 		<div id="hero-slider">
-			<HeroNavbars />
+			{/* menu */}
+			{children}
 
 			<div
 				className="slider-container"

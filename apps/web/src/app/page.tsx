@@ -2,6 +2,7 @@ import { Armchair, Car, Globe, Package } from "lucide-react";
 import {
 	AboutSection,
 	Footer,
+	HeroNavbars,
 	HeroSlider,
 	HomeProductsSlider,
 	HomeSections,
@@ -9,7 +10,7 @@ import {
 	SocialLinks,
 } from "@/widgets";
 
-export default function Home() {
+export default async function Home() {
 	return (
 		<main id="home-page">
 			<section id="hero-section">
@@ -19,7 +20,9 @@ export default function Home() {
 						announcement! -This is an announcement!
 					</p>
 				</Marquee>
-				<HeroSlider />
+				<HeroSlider>
+					<HeroNavbars />
+				</HeroSlider>
 			</section>
 
 			<section id="features-section">

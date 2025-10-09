@@ -4,7 +4,7 @@ export interface Category {
 	slug: string;
 	description: string;
 	icon?: string | null;
-	image?: string | null;
+	image_url?: string | null;
 	meta_title?: string | null;
 	meta_description?: string | null;
 	sort_order: number;

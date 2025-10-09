@@ -21,7 +21,7 @@ export const abouts = [
 	{ name: "FAQ", href: "/faq" },
 ];
 
-export const HeroLeftNavbar = () => {
+export const HeroLeftNavbar = async () => {
 	return (
 		<CornerElement position="top-left" size="xl" id="hero-left-navbar">
 			<ul>

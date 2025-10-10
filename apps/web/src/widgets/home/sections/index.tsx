@@ -5,6 +5,7 @@ import { useCategories } from "@/entities/categories";
 
 export const HomeSections = async () => {
 	const { data } = await useCategories();
+
 	if (!data) return null;
 
 	const firstCategory = data[0];

@@ -7,11 +7,7 @@ import {
 	ItemFlipWrapper,
 } from "@/components/item-flip-animation";
 import { ThemeToggle } from "@/components/theme-toggle";
-import {
-	HoverCard,
-	HoverCardContent,
-	HoverCardTrigger,
-} from "@/components/ui/hover-card";
+import { HoverPopover } from "@/components/ui/hovered-popover";
 import { Logo } from "@/widgets";
 import { Collections } from "../collections";
 
@@ -38,41 +34,40 @@ export const HeroLeftNavbar = async () => {
 				</li>
 
 				<li>
-					<HoverCard openDelay={100} closeDelay={100}>
-						<HoverCardTrigger asChild>
+					<HoverPopover
+						trigger={
 							<ItemFlipWrapper hasIcon>
 								<ItemFlipAnimation text="Collections" />
 							</ItemFlipWrapper>
-						</HoverCardTrigger>
-
-						<HoverCardContent className="menu-card-content">
-							<Collections />
-						</HoverCardContent>
-					</HoverCard>
+						}
+						contentProps={{ className: "menu-card-content" }}
+					>
+						<Collections />
+					</HoverPopover>
 				</li>
 
 				<li>
-					<HoverCard openDelay={100} closeDelay={100}>
-						<HoverCardTrigger asChild>
+					<HoverPopover
+						trigger={
 							<ItemFlipWrapper hasIcon>
 								<ItemFlipAnimation text="About" />
 							</ItemFlipWrapper>
-						</HoverCardTrigger>
-						<HoverCardContent className="menu-card-content about">
-							{abouts.map((about) => (
-								<ItemFlipWrapper key={about.name}>
-									<Link href={{ pathname: about.href }} className="item">
-										<h4>{about.name}</h4>
+						}
+						contentProps={{ className: "menu-card-content about" }}
+					>
+						{abouts.map((about) => (
+							<ItemFlipWrapper key={about.name}>
+								<Link href={{ pathname: about.href }} className="item">
+									<h4>{about.name}</h4>
 
-										<ItemFlipAnimation
-											text={<ArrowRight size={14} />}
-											className="icon"
-										/>
-									</Link>
-								</ItemFlipWrapper>
-							))}
-						</HoverCardContent>
-					</HoverCard>
+									<ItemFlipAnimation
+										text={<ArrowRight size={14} />}
+										className="icon"
+									/>
+								</Link>
+							</ItemFlipWrapper>
+						))}
+					</HoverPopover>
 				</li>
 
 				<li>

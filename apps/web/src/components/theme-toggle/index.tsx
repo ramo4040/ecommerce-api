@@ -6,24 +6,24 @@ import { Skeleton } from "../ui/skeleton";
 import { Switch } from "../ui/switch";
 
 export const ThemeToggle = () => {
-	const { setTheme, theme, systemTheme } = useTheme();
-	const [mounted, setMounted] = useState(false);
+  const { setTheme, theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-	useEffect(() => {
-		setMounted(true);
-	}, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-	if (!mounted) {
-		return <Skeleton className="h-5 w-[32px]" />;
-	}
+  if (!mounted) {
+    return <Skeleton className="h-5 w-[32px]" />;
+  }
 
-	const isDarkMode =
-		theme === "dark" || (theme === "system" && systemTheme === "dark");
+  const isDarkMode =
+    theme === "dark" || (theme === "system" && systemTheme === "dark");
 
-	return (
-		<Switch
-			checked={isDarkMode}
-			onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
-		/>
-	);
+  return (
+    <Switch
+      checked={isDarkMode}
+      onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+    />
+  );
 };

@@ -1,48 +1,48 @@
 #hero-left-navbar {
-	--size: var(--radius-2xl);
+  --size: var(--radius-2xl);
 
-	display: flex;
-	position: relative;
-	background: var(--background);
-	padding: 0 var(--spacing-18) var(--spacing-4) var(--spacing-4);
+  display: flex;
+  position: relative;
+  background: var(--background);
+  padding: 0 var(--spacing-18) var(--spacing-4) var(--spacing-4);
 
-	ul {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-18);
-		list-style: none;
+  ul {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-18);
+    list-style: none;
 
-		@media (width < 768px) {
-			:not(:first-child, :last-child) {
-				display: none;
-			}
-		}
-	}
+    @media (width < 768px) {
+      :not(:first-child, :last-child) {
+        display: none;
+      }
+    }
+  }
 }
 
 .menu-card-content {
-	padding: var(--spacing-6);
-	display: grid;
-	gap: var(--spacing-6);
-	width: 15rem;
-	background: var(--background);
+  padding: var(--spacing-6);
+  display: grid;
+  gap: var(--spacing-6);
+  width: 15rem;
+  background: var(--background);
 
-	&.about {
-		width: 12rem;
+  &.about {
+    width: 12rem;
 
-		.item {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			background: var(--color-card-bg);
-			padding: var(--spacing-8) var(--spacing-12);
-			width: 100%;
-			border-radius: var(--radius-md);
-			font-size: 15px;
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--color-card-bg);
+      padding: var(--spacing-8) var(--spacing-12);
+      width: 100%;
+      border-radius: var(--radius-md);
+      font-size: 15px;
 
-			&:hover {
-				background: var(--color-card-bg-hover);
-			}
-		}
-	}
+      &:hover {
+        background: var(--color-card-bg-hover);
+      }
+    }
+  }
 }

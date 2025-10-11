@@ -1,27 +1,27 @@
 .slider__btn {
-	--transparent-bg-color: #00000047;
+  --transparent-bg-color: #00000047;
 
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	z-index: 5;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
 
-	button {
-		cursor: pointer;
-		background: var(--transparent-bg-color);
+  button {
+    cursor: pointer;
+    background: var(--transparent-bg-color);
 
-		svg {
-			width: var(--spacing-28);
-			height: var(--spacing-28);
-			color: white;
-		}
-	}
+    svg {
+      width: var(--spacing-28);
+      height: var(--spacing-28);
+      color: white;
+    }
+  }
 
-	&.--next {
-		right: 2rem;
-	}
+  &.--next {
+    right: 2rem;
+  }
 
-	&.--prev {
-		left: 2rem;
-	}
+  &.--prev {
+    left: 2rem;
+  }
 }

@@ -1,40 +1,40 @@
 #flip-wrapper {
-	display: flex;
-	gap: var(--spacing-6);
-	align-items: center;
-	cursor: pointer;
-	height: 100%;
+  display: flex;
+  gap: var(--spacing-6);
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
 
-	.flip-animate {
-		text-decoration: none;
-		outline: none;
-		overflow: hidden;
-		position: relative;
+  .flip-animate {
+    text-decoration: none;
+    outline: none;
+    overflow: hidden;
+    position: relative;
 
-		span {
-			display: block;
-			transition: var(--transition-standard-slow-spatial);
+    span {
+      display: block;
+      transition: var(--transition-standard-slow-spatial);
 
-			&:last-child {
-				position: absolute;
-				top: 130%;
-				left: 0;
-			}
-		}
-	}
+      &:last-child {
+        position: absolute;
+        top: 130%;
+        left: 0;
+      }
+    }
+  }
 
-	.plus-icon {
-		width: var(--spacing-14);
-		transition: var(--transition-standard-slow-spatial);
-	}
+  .plus-icon {
+    width: var(--spacing-14);
+    transition: var(--transition-standard-slow-spatial);
+  }
 
-	&:hover,
-	&:focus {
-		.plus-icon {
-			transform: scale(0.9) rotate(240deg);
-		}
-		span {
-			transform: translateY(-130%);
-		}
-	}
+  &:hover,
+  &:focus {
+    .plus-icon {
+      transform: scale(0.9) rotate(240deg);
+    }
+    span {
+      transform: translateY(-130%);
+    }
+  }
 }

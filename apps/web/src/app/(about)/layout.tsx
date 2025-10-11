@@ -5,34 +5,34 @@ import DynamicHeroImage from "@/components/dynamic-hero-image";
 import { Footer, HeroNavbars, SocialLinks } from "@/widgets";
 
 export const metadata: Metadata = {
-	title: "about",
-	description: "about",
+  title: "about",
+  description: "about",
 };
 
 interface LayoutProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-	return (
-		<main id="about-layout">
-			<HeroNavbars isFixed />
+  return (
+    <main id="about-layout">
+      <HeroNavbars isFixed />
 
-			<section className="content-wrapper">
-				<div className="image">
-					<DynamicHeroImage />
-					<CornerElement position="bottom-right">
-						We are {process.env.NEXT_PUBLIC_COMPANY_NAME}
-					</CornerElement>
-				</div>
+      <section className="content-wrapper">
+        <div className="image">
+          <DynamicHeroImage />
+          <CornerElement position="bottom-right">
+            We are {process.env.NEXT_PUBLIC_COMPANY_NAME}
+          </CornerElement>
+        </div>
 
-				<div className="content">{children}</div>
-			</section>
+        <div className="content">{children}</div>
+      </section>
 
-			<SocialLinks />
-			<Footer />
-		</main>
-	);
+      <SocialLinks />
+      <Footer />
+    </main>
+  );
 };
 
 export default Layout;

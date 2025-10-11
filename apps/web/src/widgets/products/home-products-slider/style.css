@@ -1,38 +1,38 @@
 #home-products-slider {
-	width: 100%;
-	position: relative;
-	border-radius: var(--radius-md);
-	overflow: hidden;
+  width: 100%;
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
 
-	.slider-track {
-		--gap: var(--spacing-12);
-		--items-per-row: 4;
-		--item-width: calc(100% / var(--items-per-row));
-		--gap-adjustment: calc(var(--gap) - (var(--gap) / var(--items-per-row)));
-		--product-width: calc(var(--item-width) - var(--gap-adjustment));
+  .slider-track {
+    --gap: var(--spacing-12);
+    --items-per-row: 4;
+    --item-width: calc(100% / var(--items-per-row));
+    --gap-adjustment: calc(var(--gap) - (var(--gap) / var(--items-per-row)));
+    --product-width: calc(var(--item-width) - var(--gap-adjustment));
 
-		display: flex;
-		gap: var(--gap);
+    display: flex;
+    gap: var(--gap);
 
-		transform: translateX(
-			calc(
-				(var(--product-width) + var(--gap-adjustment)) *
-				var(--current-index) *
-				-1
-			)
-		);
-		transition: var(--transition-standard-slow-effects);
+    transform: translateX(
+      calc(
+        (var(--product-width) + var(--gap-adjustment)) *
+        var(--current-index) *
+        -1
+      )
+    );
+    transition: var(--transition-standard-slow-effects);
 
-		.product-size {
-			min-width: var(--product-width);
-		}
+    .product-size {
+      min-width: var(--product-width);
+    }
 
-		@media (width <= 1024px) {
-			--items-per-row: 3;
-		}
+    @media (width <= 1024px) {
+      --items-per-row: 3;
+    }
 
-		@media (width <= 768px) {
-			--items-per-row: 2;
-		}
-	}
+    @media (width <= 768px) {
+      --items-per-row: 2;
+    }
+  }
 }

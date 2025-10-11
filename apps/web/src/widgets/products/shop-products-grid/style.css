@@ -1,0 +1,5 @@
+#shop-products-grid {
+  display: grid;
+  gap: var(--spacing-12);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}

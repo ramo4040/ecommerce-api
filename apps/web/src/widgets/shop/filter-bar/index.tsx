@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 
 type Props = { data?: Category[] };
 
-export const FilterBar: FC<Props> = async ({ data }) => {
+export const FilterBar: FC<Props> = ({ data }) => {
   const pathname = usePathname();
   const currentCategory = data?.find(
     (category) => category.slug === pathname.split("/").pop(),

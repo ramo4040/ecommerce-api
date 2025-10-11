@@ -21,7 +21,7 @@ export const Collections: FC<ComponentProps<"a">> = async ({
         className={className}
         {...props}
         id="collections-card"
-        href={{ href: collection.slug }}
+        href={{ pathname: `/shop/category/${collection.slug}` }}
       >
         <div className="img-wrapper">
           <Image

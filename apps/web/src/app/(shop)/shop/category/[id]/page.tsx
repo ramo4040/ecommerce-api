@@ -1,4 +1,5 @@
 import { useCategories } from "@/entities/categories";
+import { ShopProductsGrid } from "@/widgets/products/shop-products-grid";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -15,5 +16,5 @@ export async function generateStaticParams() {
 export default async function CategoryPage({ params }: Props) {
   const { id } = await params;
 
-  return <div>Category: {id}</div>;
+  return <ShopProductsGrid />;
 }

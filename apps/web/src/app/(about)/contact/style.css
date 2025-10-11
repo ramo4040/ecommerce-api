@@ -1,71 +1,71 @@
 #contact-details {
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-12);
-	height: calc(100% - var(--spacing-24));
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  height: calc(100% - var(--spacing-24));
 
-	> * {
-		border-radius: var(--radius-lg);
-	}
+  > * {
+    border-radius: var(--radius-lg);
+  }
 
-	> form {
-		display: grid;
-		gap: var(--spacing-8);
-		padding: clamp(var(--spacing-24), 5vw, var(--spacing-64));
-		padding-bottom: var(--spacing-24);
-		height: fit-content;
-		background: var(--color-card-bg);
+  > form {
+    display: grid;
+    gap: var(--spacing-8);
+    padding: clamp(var(--spacing-24), 5vw, var(--spacing-64));
+    padding-bottom: var(--spacing-24);
+    height: fit-content;
+    background: var(--color-card-bg);
 
-		h1 {
-			font-size: var(--spacing-40);
-		}
+    h1 {
+      font-size: var(--spacing-40);
+    }
 
-		input,
-		textarea {
-			background: var(--background);
-		}
+    input,
+    textarea {
+      background: var(--background);
+    }
 
-		textarea {
-			height: 7rem;
-			max-width: 100%;
-		}
+    textarea {
+      height: 7rem;
+      max-width: 100%;
+    }
 
-		.inputs-group {
-			display: flex;
-			gap: var(--spacing-8);
-		}
-	}
+    .inputs-group {
+      display: flex;
+      gap: var(--spacing-8);
+    }
+  }
 
-	.location-cards {
-		flex: 1;
-		display: grid;
-		gap: var(--spacing-12);
-		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  .location-cards {
+    flex: 1;
+    display: grid;
+    gap: var(--spacing-12);
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 
-		> * {
-			background: var(--color-card-bg);
-			padding: var(--spacing-44);
-			display: flex;
-			flex-direction: column;
-			gap: var(--spacing-12);
-			border-radius: var(--radius-lg);
-		}
+    > * {
+      background: var(--color-card-bg);
+      padding: var(--spacing-44);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-12);
+      border-radius: var(--radius-lg);
+    }
 
-		h1 {
-			font-size: var(--spacing-24);
-		}
+    h1 {
+      font-size: var(--spacing-24);
+    }
 
-		p {
-			margin-top: auto;
-		}
+    p {
+      margin-top: auto;
+    }
 
-		.button-wrapper {
-			button {
-				cursor: pointer;
-			}
+    .button-wrapper {
+      button {
+        cursor: pointer;
+      }
 
-			height: fit-content;
-			width: fit-content;
-		}
-	}
+      height: fit-content;
+      width: fit-content;
+    }
+  }
 }

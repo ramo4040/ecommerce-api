@@ -1,49 +1,49 @@
 #about-page {
-	display: grid;
-	gap: var(--spacing-12);
-	width: 100%;
-	max-width: 100%;
-	overflow-x: hidden;
-	box-sizing: border-box;
+  display: grid;
+  gap: var(--spacing-12);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 
-	> * {
-		border-radius: var(--radius-lg);
-		max-width: 100%;
-		box-sizing: border-box;
-	}
+  > * {
+    border-radius: var(--radius-lg);
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 
-	.content-wrapper {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		padding: clamp(var(--spacing-24), 5vw, var(--spacing-64));
-		background-color: var(--color-card-bg);
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(var(--spacing-24), 5vw, var(--spacing-64));
+    background-color: var(--color-card-bg);
 
-		h1 {
-			line-height: 1.2;
-			font-size: clamp(var(--spacing-28), 5vw, var(--spacing-40));
-		}
+    h1 {
+      line-height: 1.2;
+      font-size: clamp(var(--spacing-28), 5vw, var(--spacing-40));
+    }
 
-		p {
-			color: var(--muted-foreground);
-			font-size: var(--spacing-16);
-		}
-	}
+    p {
+      color: var(--muted-foreground);
+      font-size: var(--spacing-16);
+    }
+  }
 
-	.company-presentation {
-		/* 3 gaps of 12 becuase we have paddint block and gap */
-		height: calc(90vh - var(--spacing-12) * 3);
+  .company-presentation {
+    /* 3 gaps of 12 becuase we have paddint block and gap */
+    height: calc(90vh - var(--spacing-12) * 3);
 
-		@media (width < 1024px) {
-			gap: var(--spacing-12);
-			height: min-content;
-		}
-	}
+    @media (width < 1024px) {
+      gap: var(--spacing-12);
+      height: min-content;
+    }
+  }
 
-	.section-title {
-		padding: var(--spacing-18);
-		background: var(--color-card-bg);
-		display: grid;
-		place-content: center;
-	}
+  .section-title {
+    padding: var(--spacing-18);
+    background: var(--color-card-bg);
+    display: grid;
+    place-content: center;
+  }
 }

@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryService
 {
-    public function __construct(private CategoryRepository $categoryRepository) {}
+    public function __construct(
+        private CategoryRepository $categoryRepository,
+        private ImageService $imageService
+    ) {}
 
     public function findAll()
     {
@@ -23,45 +26,29 @@ class CategoryService
 
     public function create(array $data)
     {
-        $this->saveImage($data, null);
+        $this->imageService->handle($data, [
+            'mode' => $data['image_mode'],
+            'key' => 'image',
+            'folder' => 'categories',
+            'existing' => null,
+        ]);
         return $this->categoryRepository->store($data);
     }
 
     public function update(string $id, array $data)
     {
         $category = $this->categoryRepository->find($id);
-        $this->saveImage($data, $category);
-
+        $this->imageService->handle($data, [
+            'mode' => $data['image_mode'],
+            'key' => 'image',
+            'folder' => 'categories',
+            'existing' => $category->image,
+        ]);
         return $this->categoryRepository->update($id, $data);
     }
 
     public function delete(string $id)
     {
         return $this->categoryRepository->delete($id);
-    }
-
-    private function saveImage(array &$data, ?Category $category): void
-    {
-        $mode = UploadImageMode::from($data['image_mode']);
-
-        switch ($mode) {
-            case UploadImageMode::UPLOAD:
-                if ($category?->image) {
-                    Storage::disk('public')->delete($category->image);
-                }
-                $data['image'] = $data['image']->store('categories', 'public');
-                break;
-
-            case UploadImageMode::CLEAR:
-                if ($category?->image) {
-                    Storage::disk('public')->delete($category->image);
-                }
-                $data['image'] = null;
-                break;
-
-            case UploadImageMode::KEEP:
-                unset($data['image']);
-                break;
-        }
     }
 }

@@ -8,6 +8,7 @@ use App\Repositories\ProductRepository;
 use App\Repositories\EloquentProductRepository;
 use App\Repositories\EloquentWishListRepository;
 use App\Repositories\WishListRepository;
+use App\Services\ImageService;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,6 +22,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ProductRepository::class, EloquentProductRepository::class);
         $this->app->bind(CategoryRepository::class, EloquentCategoryRepository::class);
         $this->app->bind(WishListRepository::class, EloquentWishListRepository::class);
+
+        $this->app->singleton(ImageService::class, function ($app) {
+            return new ImageService();
+        });
     }
 
     /**

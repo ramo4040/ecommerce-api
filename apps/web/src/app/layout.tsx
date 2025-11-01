@@ -3,6 +3,7 @@ import "@/public/styles/tokens.css";
 import "./style.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { BorderContainer } from "@/components/border-container";
 import Providers from "@/components/providers";
 
 const geistSans = Geist({
@@ -31,6 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
+        <BorderContainer />
         <Providers>{children}</Providers>
       </body>
     </html>

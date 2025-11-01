@@ -7,6 +7,7 @@
   justify-content: space-between;
 
   &.fixed {
+    padding-right: var(--spacing-12);
     position: fixed;
     top: 0;
     border-top: var(--spacing-12) solid var(--background);

@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Product;
 use App\Repositories\ProductRepository;
 use App\Services\ImageService;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 
 class ProductService
@@ -14,7 +15,7 @@ class ProductService
         private ImageService $imageService
     ) {}
 
-    public function all(array $filter): Collection
+    public function all(array $filter): LengthAwarePaginator|Collection
     {
         return $this->productsRepository->index($filter);
     }

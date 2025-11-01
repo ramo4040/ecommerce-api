@@ -35,6 +35,9 @@ class ProductIndexRequest extends FormRequest
 
         return [
             'status' => $statusRule,
+            'limit' => 'sometimes|integer',
+            'category_id' => 'sometimes|integer',
+            'page' => 'sometimes|integer',
         ];
     }
 

@@ -37,7 +37,7 @@ class ProductsSeeder extends Seeder
                     'products/p3.jpg',
                     'products/p2.jpg'
                 ]),
-                'meta_title' => null,
+                'meta_title' => 'Made from solid oak, this chair',
                 'meta_description' => 'Elevate your dining experience with the Nordic Dining Chair, a perfect blend of timeless design and modern craftsmanship. Made from solid oak, this chair showcases the natural beauty of the wood with its smooth grain and warm finish. The ergonomic design ensures comfort for long meals and gatherings, while its minimalist silhouette complements any interior style.',
                 'tags' => json_encode([
                     'smartphone',

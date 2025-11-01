@@ -35,6 +35,8 @@ class Product extends Model
         'tags' => 'array',
         'is_active' => 'boolean',
         'is_featured' => 'boolean',
+        'compare_price' => 'double',
+        'price' => 'double',
     ];
 
     protected $appends = ['is_on_sale', 'discount_percentage'];
@@ -73,8 +75,8 @@ class Product extends Model
             ->when(isset($filter['filter']), function ($query) use ($filter) {
                 $query->where('name', 'like', '%' . $filter['filter'] . '%');
             })
-            ->when(isset($filter['category']), function ($query) use ($filter) {
-                $query->where('category_id', $filter['category']);
+            ->when(isset($filter['category_id']), function ($query) use ($filter) {
+                $query->where('category_id', $filter['category_id']);
             })
             ->when(isset($filter['min_price']) && isset($filter['max_price']), function ($query) use ($filter) {
                 $query->whereBetween('price', [$filter['min_price'], $filter['max_price']]);

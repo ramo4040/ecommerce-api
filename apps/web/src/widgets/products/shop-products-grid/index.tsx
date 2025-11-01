@@ -1,11 +1,38 @@
+"use client";
+
 import "./style.css";
-import { ProductsData } from "@/entities/product";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { useInfinityProductsQuery } from "@/entities/product";
 import { ProductCard } from "../card";
 
 export const ShopProductsGrid = () => {
-  const products = Array.from({ length: 8 }, (_, i) => (
-    <ProductCard product={ProductsData[0]} className="product-size" key={i} />
-  ));
+  const { ref, inView } = useInView();
+  const { data, fetchNextPage, hasNextPage } = useInfinityProductsQuery();
 
-  return <div id="shop-products-grid">{products.map((e) => e)}</div>;
+  const products = data?.pages.flatMap((page) =>
+    page.data ? page.data.data : [],
+  );
+
+  // Auto-fetch when scrolling to bottom
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, fetchNextPage, hasNextPage]);
+
+  return (
+    <div id="shop-products-grid">
+      {products?.map((e, i) => {
+        return (
+          <ProductCard
+            product={e}
+            className="product-size"
+            key={e.id}
+            ref={i === products.length - 1 ? ref : null}
+          />
+        );
+      })}
+    </div>
+  );
 };

@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: end;
     padding: var(--spacing-64);
-    padding-top: 0;
+    padding-top: 80px;
     background: var(--color-card-bg);
     border-radius: var(--radius-lg);
     height: 270px;
@@ -21,6 +21,14 @@
       text-wrap: balance;
       width: 40%;
       color: var(--muted-foreground);
+    }
+
+    @media (width < 768px) {
+      padding: var(--spacing-20);
+      max-height: 220px;
+      p {
+        width: 100%;
+      }
     }
   }
 

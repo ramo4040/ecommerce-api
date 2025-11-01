@@ -1,5 +1,13 @@
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { prefetchInfinityProducts } from "@/entities/product";
 import { ShopProductsGrid } from "@/widgets/products/shop-products-grid";
 
-export default function Page() {
-  return <ShopProductsGrid />;
+export default async function Page() {
+  const queryClient = await prefetchInfinityProducts();
+
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <ShopProductsGrid />
+    </HydrationBoundary>
+  );
 }

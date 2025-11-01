@@ -1,5 +1,6 @@
 import { type Product, ProductStatus } from "./types";
 
+export * from "./api";
 export * from "./types";
 
 export const ProductsData: Product[] = [

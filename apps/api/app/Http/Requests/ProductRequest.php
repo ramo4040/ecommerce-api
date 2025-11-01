@@ -32,9 +32,9 @@ class ProductRequest extends FormRequest
             'main_image_mode' => ['required', Rule::enum(UploadImageMode::class)],
             'gallery_images' => 'nullable|array|max:10',
             'gallery_images.*' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
-            'gallery_images_modes' => 'required|array',
+            'gallery_images_modes' => 'nullable|array',
             'gallery_images_modes.*.mode' => ['required', Rule::enum(UploadImageMode::class)],
-            'gallery_images_modes.*.id' => 'string',
+            'gallery_images_modes.*.id' => 'sometimes|string',
 
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',

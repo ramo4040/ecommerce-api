@@ -16,7 +16,7 @@ export const ProductsData: Product[] = [
     quantity: 25,
     status: ProductStatus.ACTIVE,
     category_id: 1,
-    main_image: "/images/p1-1.jpg",
+    main_image: "/products/p1.jpg",
     gallery_images: [
       "/images/p1-1.jpg",
       "/images/p1-2.jpg",

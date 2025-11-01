@@ -6,9 +6,14 @@ import { useInView } from "react-intersection-observer";
 import { useInfinityProductsQuery } from "@/entities/product";
 import { ProductCard } from "../card";
 
-export const ShopProductsGrid = () => {
+export const ShopProductsGrid = ({ categoryId }: { categoryId?: number }) => {
   const { ref, inView } = useInView();
-  const { data, fetchNextPage, hasNextPage } = useInfinityProductsQuery();
+
+  const { data, fetchNextPage, hasNextPage } = useInfinityProductsQuery({
+    categoryId,
+  });
+
+  console.log("has next page:", hasNextPage);
 
   const products = data?.pages.flatMap((page) =>
     page.data ? page.data.data : [],

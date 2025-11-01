@@ -24,8 +24,8 @@ export const ProductCard: FC<Props> = ({
       href={{ href: product.slug }}
     >
       <Image
-        src={product.main_image}
-        alt={product.name}
+        src={`${process.env.NEXT_PUBLIC_API_URL}/storage/${product.main_image}`}
+        alt={product.meta_title ?? product.name}
         fill
         style={{ objectFit: "cover" }}
       />

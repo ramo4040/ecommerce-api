@@ -29,7 +29,6 @@ export const fetcher = async <T>(
 
     const response = await fetch(fullUrl, {
       ...options,
-      next: { revalidate: 3600 },
     });
 
     return await response.json();

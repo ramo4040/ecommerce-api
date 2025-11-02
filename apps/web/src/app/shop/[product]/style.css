@@ -1,0 +1,23 @@
+#product-page {
+  .product-details {
+    min-height: 100vh;
+    display: flex;
+    gap: var(--spacing-20);
+
+    > * {
+      border-radius: var(--radius-md);
+      &:first-child {
+        flex: 60%;
+      }
+    }
+  }
+
+  .info {
+    align-self: flex-start;
+    flex: 40%;
+    position: sticky;
+    top: var(--spacing-12);
+    height: 100vh;
+    background: var(--color-card-bg);
+  }
+}

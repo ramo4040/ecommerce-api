@@ -1,4 +1,5 @@
 import { QueryClient, useInfiniteQuery } from "@tanstack/react-query";
+import { cache } from "react";
 import { fetcher } from "@/shared/api/api";
 import type { GlobalResponse, PaginatedData } from "@/shared/types";
 import type { Product } from "../types";
@@ -22,9 +23,13 @@ export const getAllProducts = ({
   const url = `/api/products?${params.toString()}`;
 
   return fetcher<PaginatedData<Product>>(url, {
-    next: { revalidate: 99999999 },
+    next: { revalidate: false },
   });
 };
+
+export const indexProducts = cache(() => {
+  return fetcher<Product[]>("/api/products", { next: { revalidate: false } });
+});
 
 const fetchOptions = ({ categoryId }: FetchProps) => ({
   queryKey: ["products", categoryId],
@@ -47,4 +52,10 @@ export const prefetchInfinityProducts = async ({ categoryId }: FetchProps) => {
 
 export const useInfinityProductsQuery = ({ categoryId }: FetchProps) => {
   return useInfiniteQuery(fetchOptions({ categoryId }));
+};
+
+export const getProductBySlug = (slug: string) => {
+  return fetcher<Product>(`/api/products/slug/${slug}`, {
+    next: { revalidate: false },
+  });
 };

@@ -3,5 +3,5 @@ import { fetcher } from "@/shared/api/api";
 import type { Category } from "../types";
 
 export const useCategories = cache(() =>
-  fetcher<Category[]>("/api/categories", { next: { revalidate: 9999999 } }),
+  fetcher<Category[]>("/api/categories", { next: { revalidate: false } }),
 );

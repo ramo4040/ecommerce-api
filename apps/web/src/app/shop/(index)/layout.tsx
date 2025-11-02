@@ -1,6 +1,5 @@
 import { useCategories } from "@/entities/categories";
-import "./style.css";
-import { Footer, HeroNavbars, SocialLinks } from "@/widgets";
+import "../style.css";
 import { FilterBar } from "@/widgets/shop/filter-bar";
 
 export default async function layout({
@@ -11,12 +10,9 @@ export default async function layout({
   const { data } = await useCategories();
 
   return (
-    <main id="shop-page-container">
-      <HeroNavbars isFixed />
+    <>
       <FilterBar data={data} />
       {children}
-      <SocialLinks />
-      <Footer />
-    </main>
+    </>
   );
 }

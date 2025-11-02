@@ -5,7 +5,7 @@
   .content-wrapper {
     display: flex;
     gap: var(--spacing-12);
-    height: min-content;
+    min-height: 100vh;
 
     .content {
       flex: 50%;

@@ -1,5 +1,6 @@
 .product-features-marquee {
   border-radius: var(--radius-sm) !important;
+  margin-top: 0 !important;
 
   .scrolling-container {
     width: 90% !important;

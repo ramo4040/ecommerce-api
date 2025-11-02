@@ -1,5 +1,5 @@
-import CustomAccordion from "@/components/custom-accordion";
 import "./style.css";
+import CustomAccordion from "@/components/custom-accordion";
 import { getProductBySlug, indexProducts } from "@/entities/product";
 import { ProductGallery } from "@/widgets/products/gallery";
 import {

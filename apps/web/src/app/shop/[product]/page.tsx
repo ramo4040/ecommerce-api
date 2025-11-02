@@ -1,9 +1,10 @@
-import { ProductGallery } from "@/widgets/products/gallery";
 import "./style.css";
-import { Badge } from "@/components/ui/badge";
 import { getProductBySlug, indexProducts } from "@/entities/product";
-import { calculateDiscount } from "@/lib/utils";
-import { ProductInfoDetails } from "@/widgets/products/shop-product-details";
+import { ProductGallery } from "@/widgets/products/gallery";
+import {
+  ProductFeaturesMarquee,
+  ProductInfoDetails,
+} from "@/widgets/products/shop-product-details";
 
 type Params = Promise<{ product: string }>;
 
@@ -25,6 +26,7 @@ export default async function Page({ params }: { params: Params }) {
 
         <div className="product-info">
           <ProductInfoDetails product={product} />
+          <ProductFeaturesMarquee />
         </div>
       </section>
     </main>

@@ -1,0 +1,34 @@
+.custom-accordion {
+  display: grid;
+  gap: var(--spacing-12);
+
+  [data-slot="accordion-trigger"] {
+    padding: var(--spacing-24);
+    background: var(--color-card-bg);
+    cursor: pointer;
+
+    /* Expanded state - remove bottom border radius */
+    &[aria-expanded="true"] {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  [data-slot="accordion-content"] {
+    background: var(--color-card-bg);
+    color: var(--muted-foreground);
+    padding-inline: var(--spacing-24);
+    border-bottom-right-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
+  }
+
+  [data-slot="accordion-item"]:hover {
+    [data-slot="accordion-trigger"] {
+      background: var(--color-card-bg-hover);
+    }
+
+    [data-slot="accordion-content"] {
+      background: var(--color-card-bg-hover);
+    }
+  }
+}

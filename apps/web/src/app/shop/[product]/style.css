@@ -1,5 +1,5 @@
 #product-page {
-  .product-details {
+  .product-container {
     min-height: 100vh;
     display: flex;
     gap: var(--spacing-20);
@@ -12,12 +12,11 @@
     }
   }
 
-  .info {
-    align-self: flex-start;
+  .product-info {
+    height: 100vh;
     flex: 40%;
     position: sticky;
+    align-self: flex-start;
     top: var(--spacing-12);
-    height: 100vh;
-    background: var(--color-card-bg);
   }
 }

@@ -1,6 +1,9 @@
 import { ProductGallery } from "@/widgets/products/gallery";
 import "./style.css";
+import { Badge } from "@/components/ui/badge";
 import { getProductBySlug, indexProducts } from "@/entities/product";
+import { calculateDiscount } from "@/lib/utils";
+import { ProductInfoDetails } from "@/widgets/products/shop-product-details";
 
 type Params = Promise<{ product: string }>;
 
@@ -17,10 +20,12 @@ export default async function Page({ params }: { params: Params }) {
 
   return (
     <main id="product-page">
-      <section className="product-details">
+      <section className="product-container">
         <ProductGallery product={product} />
 
-        <div className="info">details</div>
+        <div className="product-info">
+          <ProductInfoDetails product={product} />
+        </div>
       </section>
     </main>
   );

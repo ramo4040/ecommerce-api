@@ -1,0 +1,178 @@
+[
+    {
+        "title": "Sage",
+        "images": [
+            "https://framerusercontent.com/images/5SEVlWoE0cFjCr7vVCI877jbpM.jpg",
+            "https://framerusercontent.com/images/5r3tSUJ4OeUcToidzsiFQpkd5I.jpg",
+            "https://framerusercontent.com/images/mFtRGQVfKtaA2R8H8SHAxkMQT4.jpg"
+        ],
+        "price": 320,
+        "compare_price": 640,
+        "category": "wood"
+    },
+    {
+        "title": "Venn",
+        "images": [
+            "https://framerusercontent.com/images/gs4VdGfJqtyl0ZfL80JFjlGxI.jpg",
+            "https://framerusercontent.com/images/VYlQCfYmH4zA3ALifuNQNfYXyQ.jpg",
+            "https://framerusercontent.com/images/zdmAltnyNefmTSmnQkXTX8RIIbI.jpg"
+        ],
+        "price": 420,
+        "compare_price": 0,
+        "category": "dark"
+    },
+    {
+        "title": "Holt",
+        "images": [
+            "https://framerusercontent.com/images/HWZXwLdRr3ggdYKlIawlDofFsJg.jpg",
+            "https://framerusercontent.com/images/35WO7JeQXIINYI9sYb9EAFs3nk.jpg",
+            "https://framerusercontent.com/images/CDpMvILAiR75gD12UgrPT8fIh8g.jpg"
+        ],
+        "price": 320,
+        "compare_price": 0,
+        "category": "wood"
+    },
+    {
+        "title": "Noor",
+        "images": [
+            "https://framerusercontent.com/images/GNSFbw6zEjShm55qQoLfSi7jLRg.jpg",
+            "https://framerusercontent.com/images/vulEiBmTz0avidg66p3rFqtdc.jpg",
+            "https://framerusercontent.com/images/vKvjpQLxfTNBUl8JpNpqlEdcF30.jpg"
+        ],
+        "price": 300,
+        "compare_price": 0,
+        "category": "wood"
+    },
+    {
+        "title": "Haven",
+        "images": [
+            "https://framerusercontent.com/images/wSWKcgGzt1mdPluh6Akx2uFk.jpg",
+            "https://framerusercontent.com/images/qnv1Lan6N96TygQlLiXOxsxhwHw.jpg",
+            "https://framerusercontent.com/images/cArpmVDM4EEEN9Kg1Cllsn5po.jpg"
+        ],
+        "price": 320,
+        "compare_price": 640,
+        "category": "modern"
+    },
+    {
+        "title": "Elm",
+        "images": [
+            "https://framerusercontent.com/images/VmIfwWwgRTA8h7pidxba2hKY.jpg",
+            "https://framerusercontent.com/images/19PnA7rEXBYVZlLBmyDuuBSPN24.jpg",
+            "https://framerusercontent.com/images/hurP93mKldNhOwAZYWACysfOYA8.jpg"
+        ],
+        "price": 0,
+        "compare_price": 0,
+        "category": "modern"
+    },
+    {
+        "title": "Kapp",
+        "images": [
+            "https://framerusercontent.com/images/DK2vV2szssclyqZosnTq6Kq3rw.jpg",
+            "https://framerusercontent.com/images/cOsf5Sdu5SqReYaez2jmnvMUog.jpg",
+            "https://framerusercontent.com/images/m70zeHereIUUYHK0TdlMLtYJAk.jpg"
+        ],
+        "price": 280,
+        "compare_price": 0,
+        "category": "wood"
+    },
+    {
+        "title": "Sol",
+        "images": [
+            "https://framerusercontent.com/images/hOhl2ZTlKrwntsJgjDBiomjPb8E.jpg",
+            "https://framerusercontent.com/images/TAplTS84rTRsH2rJ4x8XyTpT1M.jpg",
+            "https://framerusercontent.com/images/jZSqGIPK2Ne8AEQlrFmkj9Wyo.jpg"
+        ],
+        "price": 300,
+        "compare_price": 0,
+        "category": "dark"
+    },
+    {
+        "title": "Runa",
+        "images": [
+            "https://framerusercontent.com/images/exWfQIPORPLpd8XqQobT2YsXuGc.jpg",
+            "https://framerusercontent.com/images/PlZdrzOZvB95g43sRtNp0qnzE.jpg",
+            "https://framerusercontent.com/images/nvjqaYYc5kwHiQ1IajecmR5YDs.jpg"
+        ],
+        "price": 300,
+        "compare_price": 0,
+        "category": "wood"
+    },
+    {
+        "title": "Nest",
+        "images": [
+            "https://framerusercontent.com/images/Z3nRZLTIL7A4jvlVgcLxnXKvzM.jpg",
+            "https://framerusercontent.com/images/0r8KgeEhw0CG9rbpUpjiGeTue8.jpg",
+            "https://framerusercontent.com/images/XaxiYWBS1mZkw5pudLR0hjky6Q.jpg"
+        ],
+        "price": 450,
+        "compare_price": 0,
+        "category": "modern"
+    },
+    {
+        "title": "Fynn",
+        "images": [
+            "https://framerusercontent.com/images/p3vhVZ2gwXF6K7DLjSl1P8CJt4Q.jpg",
+            "https://framerusercontent.com/images/YNwCLWFErGUs4sPZqBxcNk4xos.jpg",
+            "https://framerusercontent.com/images/wa8zVyGL32PX9oCtAbSLudU9IA.jpg"
+        ],
+        "price": 300,
+        "compare_price": 0,
+        "category": "modern"
+    },
+    {
+        "title": "Lykke",
+        "images": [
+            "https://framerusercontent.com/images/FxvdJOd9divsWL8YxLYvKlTZSU.jpg",
+            "https://framerusercontent.com/images/WYveUoYdy8TB8xmXhW19fXYZk.jpg",
+            "https://framerusercontent.com/images/wiL8cfbgTfX5uO0XXU77F6WMA.jpg"
+        ],
+        "price": 0,
+        "compare_price": 0,
+        "category": "modern"
+    },
+    {
+        "title": "Alba",
+        "images": [
+            "https://framerusercontent.com/images/C7Cf40Q8U4btIMkWY3YGewpp9M.jpg",
+            "https://framerusercontent.com/images/7hPO9OQ53OR18Gv3Zj4rSm0PLLM.jpg",
+            "https://framerusercontent.com/images/HKhGs0fTXpb3VAcIFXD0EhNz1c.jpg"
+        ],
+        "price": 0,
+        "compare_price": 0,
+        "category": "dark"
+    },
+    {
+        "title": "Sona",
+        "images": [
+            "https://framerusercontent.com/images/QUjm2xDRcUWgdTPze4lZmM3UqWU.jpg",
+            "https://framerusercontent.com/images/hHuUlMMj8HGgfseSghQpuBhGYAM.jpg",
+            "https://framerusercontent.com/images/mYq1Jvg7Xj4ClMZ4P6117seZpl0.jpg"
+        ],
+        "price": 420,
+        "compare_price": 0,
+        "category": "modern"
+    },
+    {
+        "title": "Fjord",
+        "images": [
+            "https://framerusercontent.com/images/8svIirhJ2SBKYqwa4Xhu24mrGt0.jpg",
+            "https://framerusercontent.com/images/R6A2DSc2seVELPC5PrZo6GeDY.jpg",
+            "https://framerusercontent.com/images/I3G7Xk5BqQ0RpDQYh8zQIePqJJU.jpg"
+        ],
+        "price": 320,
+        "compare_price": 0,
+        "category": "wood"
+    },
+    {
+        "title": "Skala",
+        "images": [
+            "https://framerusercontent.com/images/S0OtKel6c43RkYgKFz4sog4ThLo.jpg",
+            "https://framerusercontent.com/images/PWO7ysRQySH2lYLTmPm9cOBdU.jpg",
+            "https://framerusercontent.com/images/r1BzVTgbpO7YxlIBeg8JhatpHI.jpg"
+        ],
+        "price": 420,
+        "compare_price": 0,
+        "category": "dark"
+    }
+]

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ProductStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -53,7 +54,7 @@ class Product extends Model
     {
         return Attribute::make(
             get: fn($value, $attributes) =>
-            $attributes['compare_price']
+            $attributes['compare_price'] > 0
                 ? round((($attributes['compare_price'] - $attributes['price']) / $attributes['compare_price']) * 100, 2)
                 : null
         );
@@ -90,6 +91,16 @@ class Product extends Model
             ->when(isset($filter['status']), function ($query) use ($filter) {
                 $query->whereIn('status', $filter['status']);
             });
+    }
+
+    public function scopeForPublic($query)
+    {
+        return $query->whereIn('status', [ProductStatus::ACTIVE, ProductStatus::OUT_OF_STOCK]);
+    }
+
+    public function scopeFilterByRoute($query, bool $isAdminRoute)
+    {
+        return $query->when(!$isAdminRoute, fn($q) => $q->forPublic());
     }
 
     public function category()

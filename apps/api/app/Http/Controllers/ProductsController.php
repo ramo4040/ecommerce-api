@@ -26,6 +26,13 @@ class ProductsController extends Controller
         return ApiResponse::success($product);
     }
 
+    public function showBySlug(string $slug, Request $request)
+    {
+        $isAdminRoute = $request->is('api/admin/*');
+        $product = $this->productService->findBySlug($slug, $isAdminRoute);
+        return ApiResponse::success($product);
+    }
+
     public function store(ProductRequest $request)
     {
         $product = $this->productService->create($request->validated());

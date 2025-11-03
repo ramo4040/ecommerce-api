@@ -2,16 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Enums\ProductStatus;
 use App\Models\Product;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Log;
 
 interface ProductRepository
 {
     public function index(array $filter): LengthAwarePaginator|Collection;
-    public function find(int $id, bool $isAdminRoute): ?Product;
+    public function findBy(string $column, mixed $value, bool $isAdminRoute): ?Product;
     public function create(array $data): Product;
     public function update(int $id, array $data): ?Product;
     public function delete(int $id): bool;
@@ -25,14 +23,10 @@ class EloquentProductRepository implements ProductRepository
         return isset($filter['page']) ? $query->paginate($filter["limit"]) : $query->get();
     }
 
-    public function find(int $id, bool $isAdminRoute): ?Product
+    public function findBy(string $column, mixed $value, bool $isAdminRoute): ?Product
     {
-        return Product::where('id', $id)
-            ->when(
-                !$isAdminRoute,
-                fn($query) =>
-                $query->whereIn('status', [ProductStatus::ACTIVE, ProductStatus::OUT_OF_STOCK])
-            )
+        return Product::where($column, $value)
+            ->filterByRoute($isAdminRoute)
             ->firstOrFail();
     }
 

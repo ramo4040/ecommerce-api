@@ -22,7 +22,12 @@ class ProductService
 
     public function find(int $id, bool $isAdminRoute): ?Product
     {
-        return $this->productsRepository->find($id, $isAdminRoute);
+        return $this->productsRepository->findBy('id', $id, $isAdminRoute);
+    }
+
+    public function findBySlug(string $slug, bool $isAdminRoute): ?Product
+    {
+        return $this->productsRepository->findBy('slug', $slug, $isAdminRoute);
     }
 
     public function create(array $data): Product

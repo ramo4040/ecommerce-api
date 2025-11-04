@@ -9,16 +9,19 @@ type FetchProps = { categoryId?: number };
 export const getAllProducts = ({
   pageParam,
   categoryId,
+  isFeatured,
   limit = 20,
 }: {
   pageParam: number;
   categoryId?: number;
+  isFeatured?: boolean;
   limit?: number;
 }) => {
   const params = new URLSearchParams();
   params.append("page", pageParam.toString());
   params.append("limit", limit.toString());
   if (categoryId) params.append("category_id", categoryId.toString());
+  if (isFeatured) params.append("is_featured", Number(isFeatured).toString());
 
   const url = `/api/products?${params.toString()}`;
 

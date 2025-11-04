@@ -3,16 +3,13 @@
 import "./style.css";
 import { useEffect, useRef, useState } from "react";
 import { SliderBtn } from "@/components/slider-btn";
-import { ProductsData } from "@/entities/product";
+import type { Product } from "@/entities/product";
 import { ProductCard } from "@/widgets/products/card";
 
-export const HomeProductsSlider = () => {
+export const HomeProductsSlider = ({ products }: { products: Product[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemPerRow, setItemPerRow] = useState(4);
   const trackerRef = useRef<HTMLDivElement>(null);
-  const products = Array.from({ length: 8 }, (_, i) => (
-    <ProductCard product={ProductsData[0]} className="product-size" key={i} />
-  ));
   const productsLength = products.length - itemPerRow + 1;
 
   const handleNext = () => {
@@ -48,7 +45,9 @@ export const HomeProductsSlider = () => {
         className="slider-track"
         style={{ "--current-index": currentIndex } as React.CSSProperties}
       >
-        {products.map((e) => e)}
+        {products.map((e) => (
+          <ProductCard product={e} className="product-size" key={e.id} />
+        ))}
       </div>
 
       <SliderBtn handleNext={handleNext} handlePrev={handlePrev} />

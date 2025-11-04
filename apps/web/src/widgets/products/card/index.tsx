@@ -21,7 +21,7 @@ export const ProductCard: FC<Props> = ({
     <Link
       className={cn("product-card", className)}
       {...props}
-      href={{ href: product.slug }}
+      href={{ pathname: `/shop/${product.slug}` }}
     >
       <Image
         src={`${process.env.NEXT_PUBLIC_API_URL}/storage/${product.main_image}`}

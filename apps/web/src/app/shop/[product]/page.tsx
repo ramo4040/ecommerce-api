@@ -1,6 +1,11 @@
 import "./style.css";
+import { notFound } from "next/navigation";
 import CustomAccordion from "@/components/custom-accordion";
-import { getProductBySlug, indexProducts } from "@/entities/product";
+import {
+  getProductBySlug,
+  indexProducts,
+  ProductStatus,
+} from "@/entities/product";
 import { ProductGallery } from "@/widgets/products/gallery";
 import {
   ProductFeaturesMarquee,
@@ -11,14 +16,20 @@ type Params = Promise<{ product: string }>;
 
 export async function generateStaticParams() {
   const { data } = await indexProducts();
-  return data?.map((product) => ({ product: product.slug })) ?? [];
+  return (
+    data
+      ?.filter((e) =>
+        [ProductStatus.ACTIVE, ProductStatus.OUT_OF_STOCK].includes(e.status),
+      )
+      .map((product) => ({ product: product.slug })) ?? []
+  );
 }
 
 export default async function Page({ params }: { params: Params }) {
   const { product: productSlug } = await params;
   const { data: product } = await getProductBySlug(productSlug);
 
-  if (!product) return <div>Product not found</div>;
+  if (!product) return notFound();
 
   return (
     <main id="product-page">

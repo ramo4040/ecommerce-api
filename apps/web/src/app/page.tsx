@@ -1,4 +1,5 @@
 import { Armchair, Car, Globe, Package } from "lucide-react";
+import { getAllProducts } from "@/entities/product";
 import {
   AboutSection,
   Footer,
@@ -11,6 +12,8 @@ import {
 } from "@/widgets";
 
 export default async function Home() {
+  const { data } = await getAllProducts({ pageParam: 1, isFeatured: true });
+
   return (
     <main id="home-page">
       <section id="hero-section">
@@ -44,7 +47,7 @@ export default async function Home() {
         <h2>Our Favorites</h2>
       </section>
 
-      <HomeProductsSlider />
+      {data && <HomeProductsSlider products={data.data} />}
 
       <section className="home-page-separator">
         <h2>Collections</h2>

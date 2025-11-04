@@ -13,8 +13,6 @@ export const ShopProductsGrid = ({ categoryId }: { categoryId?: number }) => {
     categoryId,
   });
 
-  console.log("has next page:", hasNextPage);
-
   const products = data?.pages.flatMap((page) =>
     page.data ? page.data.data : [],
   );

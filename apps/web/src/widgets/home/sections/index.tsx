@@ -2,7 +2,7 @@ import Image from "next/image";
 import "./style.css";
 import Link from "next/link";
 import type { FC } from "react";
-import { type Category, useCategories } from "@/entities/categories";
+import type { Category } from "@/entities/categories";
 
 const CategoryDetails: FC<{ category: Category }> = ({
   category: { name, description, image_url, slug, meta_title },
@@ -27,9 +27,7 @@ const CategoryDetails: FC<{ category: Category }> = ({
   );
 };
 
-export const HomeSections = async () => {
-  const { data } = await useCategories();
-
+export const HomeSections: FC<{ data?: Category[] }> = async ({ data }) => {
   if (!data) return null;
 
   const categories = data.slice(0, 3);

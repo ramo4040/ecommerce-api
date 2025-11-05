@@ -71,14 +71,6 @@ export const HeroLeftNavbar = async () => {
         </li>
 
         <li>
-          <ItemFlipWrapper>
-            <Link href={{ pathname: "/blog" }}>
-              <ItemFlipAnimation text="Blog" />
-            </Link>
-          </ItemFlipWrapper>
-        </li>
-
-        <li>
           <ThemeToggle />
         </li>
       </ul>

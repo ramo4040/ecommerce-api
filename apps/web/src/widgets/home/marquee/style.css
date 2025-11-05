@@ -1,10 +1,10 @@
 #marquee-banner-wrapper {
+  width: 100%;
+  display: grid;
   margin-top: var(--spacing-12);
   background: var(--foreground);
-  width: 100%;
   padding: var(--spacing-6);
   border-radius: var(--radius-xl);
-  display: flex;
 
   .scrolling-container {
     mask-image: linear-gradient(

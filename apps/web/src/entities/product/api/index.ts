@@ -4,24 +4,22 @@ import { fetcher } from "@/shared/api/api";
 import type { GlobalResponse, PaginatedData } from "@/shared/types";
 import type { Product } from "../types";
 
-type FetchProps = { categoryId?: number };
+type FetchProps = Partial<{
+  page: number;
+  category_id: number;
+  is_featured: number;
+  limit: number;
+}>;
 
-export const getAllProducts = ({
-  pageParam,
-  categoryId,
-  isFeatured,
-  limit = 20,
-}: {
-  pageParam: number;
-  categoryId?: number;
-  isFeatured?: boolean;
-  limit?: number;
-}) => {
-  const params = new URLSearchParams();
-  params.append("page", pageParam.toString());
-  params.append("limit", limit.toString());
-  if (categoryId) params.append("category_id", categoryId.toString());
-  if (isFeatured) params.append("is_featured", Number(isFeatured).toString());
+export const getAllProducts = ({ limit = 10, ...rest }: FetchProps) => {
+  const queryParams = Object.entries({ limit, ...rest })
+    .filter(([_, v]) => v !== undefined)
+    .reduce<Record<string, string>>((acc, [key, value]) => {
+      acc[key] = value.toString();
+      return acc;
+    }, {});
+
+  const params = new URLSearchParams(queryParams);
 
   const url = `/api/products?${params.toString()}`;
 
@@ -34,9 +32,10 @@ export const indexProducts = cache(() => {
   return fetcher<Product[]>("/api/products", { next: { revalidate: false } });
 });
 
-const fetchOptions = ({ categoryId }: FetchProps) => ({
-  queryKey: ["products", categoryId],
-  queryFn: ({ pageParam = 1 }) => getAllProducts({ pageParam, categoryId }),
+const fetchOptions = ({ category_id }: FetchProps) => ({
+  queryKey: ["products", category_id],
+  queryFn: ({ pageParam = 1 }) =>
+    getAllProducts({ page: pageParam, category_id }),
   initialPageParam: 1,
   getNextPageParam: (data: GlobalResponse<PaginatedData<Product>>) => {
     if (!data.data) return undefined;
@@ -44,17 +43,17 @@ const fetchOptions = ({ categoryId }: FetchProps) => ({
   },
 });
 
-export const prefetchInfinityProducts = async ({ categoryId }: FetchProps) => {
+export const prefetchInfinityProducts = async ({ category_id }: FetchProps) => {
   const queryClient = new QueryClient();
   await queryClient.prefetchInfiniteQuery({
-    ...fetchOptions({ categoryId }),
+    ...fetchOptions({ category_id }),
     pages: 1,
   });
   return queryClient;
 };
 
-export const useInfinityProductsQuery = ({ categoryId }: FetchProps) => {
-  return useInfiniteQuery(fetchOptions({ categoryId }));
+export const useInfinityProductsQuery = ({ category_id }: FetchProps) => {
+  return useInfiniteQuery(fetchOptions({ category_id }));
 };
 
 export const getProductBySlug = (slug: string) => {

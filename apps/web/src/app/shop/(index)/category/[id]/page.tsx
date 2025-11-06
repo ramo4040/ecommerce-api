@@ -20,14 +20,14 @@ export async function generateStaticParams() {
 export default async function CategoryPage({ params }: Props) {
   const { id } = await params;
   const { data } = await useCategories();
-  const categoryId = data?.find((cat) => cat.slug === id)?.id;
+  const category_id = data?.find((cat) => cat.slug === id)?.id;
   const queryClient = await prefetchInfinityProducts({
-    categoryId,
+    category_id,
   });
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <ShopProductsGrid categoryId={categoryId} />
+      <ShopProductsGrid categoryId={category_id} />
     </HydrationBoundary>
   );
 }

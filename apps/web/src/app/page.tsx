@@ -16,8 +16,8 @@ export default async function Home() {
   const [categories, featuredProducts] = await Promise.all([
     useCategories(),
     getAllProducts({
-      pageParam: 1,
-      isFeatured: true,
+      page: 1,
+      is_featured: 1,
     }),
   ]);
 

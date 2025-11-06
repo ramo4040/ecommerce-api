@@ -3,7 +3,7 @@
 import { ArrowRight, Menu, Search, ShoppingCart, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { type ComponentProps, type FC, useState } from "react";
+import { type ComponentProps, type FC, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Command,

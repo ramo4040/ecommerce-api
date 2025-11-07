@@ -5,13 +5,14 @@ import "./style.css";
 import { Minus, Plus } from "lucide-react";
 import { type ComponentProps, useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import type { Product } from "@/entities/product";
+import { type Product, useShoppingCartStore } from "@/entities/product";
 import { calculateDiscount } from "@/lib/utils";
 
 type Props = ComponentProps<"div"> & { product: Product };
 
 export const ProductInfoDetails = ({ product }: Props) => {
   const [quantity, setQuantity] = useState(1);
+  const { addItem } = useShoppingCartStore();
 
   return (
     <div id="product-info-details">
@@ -56,7 +57,11 @@ export const ProductInfoDetails = ({ product }: Props) => {
           </Button>
         </div>
 
-        <Button className="submit" size="lg">
+        <Button
+          className="submit"
+          size="lg"
+          onClick={() => addItem(product, quantity)}
+        >
           Add to Cart
         </Button>
       </div>

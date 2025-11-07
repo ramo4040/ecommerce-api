@@ -1,19 +1,17 @@
 "use client";
 
-import { ArrowRight, Menu, ShoppingCart, X } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight, Menu } from "lucide-react";
 import Link from "next/link";
 import { type ComponentProps, type FC, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ProductsData } from "@/entities/product";
 import { NavbarSearch } from "../search";
+import { ShoppingCartNavbar } from "../shopping-cart";
 
 const pageLinks = [
   { name: "Shop", href: "#" },
@@ -24,87 +22,12 @@ const pageLinks = [
 export const HeroRightNavbarClient: FC<ComponentProps<"div">> = ({
   children,
 }) => {
-  const product = ProductsData[0];
-
-  const [cartOpen, setCartOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
       <NavbarSearch />
-      <Sheet open={cartOpen} onOpenChange={setCartOpen}>
-        <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="shopping-cart-btn">
-            <ShoppingCart strokeWidth={1.5} />
-            <p>(0)</p>
-          </Button>
-        </SheetTrigger>
-        <SheetContent id="shopping-cart-sheet">
-          <SheetHeader>
-            <SheetTitle>
-              Cart (0)
-              <Button
-                variant="ghost"
-                size="icon"
-                className="close-btn"
-                onClick={() => setCartOpen(false)}
-              >
-                <X strokeWidth={1.5} />
-              </Button>
-            </SheetTitle>
-          </SheetHeader>
-
-          <div className="cart-details">
-            <div className="cart-items">
-              <div className="item">
-                <div className="img">
-                  <Image
-                    src={product.main_image}
-                    alt={product.meta_title || "Product Image"}
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
-                </div>
-
-                <div className="details">
-                  <div className="info">
-                    <p className="name">{product.name}</p>
-
-                    <p className="quantity-price">
-                      <span className="price">255$</span>
-                      <span className="compare_price">300$</span>
-                    </p>
-                  </div>
-
-                  <div className="actions">
-                    <div className="quantity-selector">
-                      <Button size="icon" type="button">
-                        -
-                      </Button>
-                      <span>4</span>
-                      <Button size="icon" type="button">
-                        +
-                      </Button>
-                    </div>
-
-                    <Button variant="ghost" size="icon" className="remove-btn">
-                      <X strokeWidth={1.5} />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="checkout">
-              <div className="total">
-                <p>$255</p>
-                <p>Subtotal</p>
-              </div>
-              <Button size={"lg"}>Checkout</Button>
-            </div>
-          </div>
-        </SheetContent>
-      </Sheet>
+      <ShoppingCartNavbar />
 
       <menu id="menu-container">
         <Sheet open={menuOpen} onOpenChange={setMenuOpen}>

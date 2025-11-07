@@ -1,6 +1,7 @@
 import { type Product, ProductStatus } from "./types";
 
 export * from "./api";
+export { useShoppingCartStore } from "./model/shopping-cart-store";
 export * from "./types";
 
 export const ProductsData: Product[] = [

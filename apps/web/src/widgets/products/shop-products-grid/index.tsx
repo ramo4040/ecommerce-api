@@ -10,7 +10,7 @@ export const ShopProductsGrid = ({ categoryId }: { categoryId?: number }) => {
   const { ref, inView } = useInView();
 
   const { data, fetchNextPage, hasNextPage } = useInfinityProductsQuery({
-    categoryId,
+    category_id: categoryId,
   });
 
   const products = data?.pages.flatMap((page) =>

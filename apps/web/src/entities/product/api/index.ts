@@ -1,15 +1,14 @@
-import { QueryClient, useInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { cache } from "react";
 import { fetcher } from "@/shared/api/api";
+import { getQueryClient } from "@/shared/api/react-query";
 import type { GlobalResponse, PaginatedData } from "@/shared/types";
 import type { Product } from "../types";
+import { productKeys } from "./keys";
+import type { FetchProps } from "./types";
 
-type FetchProps = Partial<{
-  page: number;
-  category_id: number;
-  is_featured: number;
-  limit: number;
-}>;
+export type { FetchProps };
+export { productKeys };
 
 export const getAllProducts = ({ limit = 10, ...rest }: FetchProps) => {
   const queryParams = Object.entries({ limit, ...rest })
@@ -23,19 +22,17 @@ export const getAllProducts = ({ limit = 10, ...rest }: FetchProps) => {
 
   const url = `/api/products?${params.toString()}`;
 
-  return fetcher<PaginatedData<Product>>(url, {
-    next: { revalidate: false },
-  });
+  return fetcher<PaginatedData<Product>>(url);
 };
 
 export const indexProducts = cache(() => {
   return fetcher<Product[]>("/api/products", { next: { revalidate: false } });
 });
 
-const fetchOptions = ({ category_id }: FetchProps) => ({
-  queryKey: ["products", category_id],
+const createInfiniteProductsQueryOptions = (params: FetchProps) => ({
+  queryKey: productKeys.list(params),
   queryFn: ({ pageParam = 1 }) =>
-    getAllProducts({ page: pageParam, category_id }),
+    getAllProducts({ page: pageParam, ...params }),
   initialPageParam: 1,
   getNextPageParam: (data: GlobalResponse<PaginatedData<Product>>) => {
     if (!data.data) return undefined;
@@ -43,17 +40,23 @@ const fetchOptions = ({ category_id }: FetchProps) => ({
   },
 });
 
-export const prefetchInfinityProducts = async ({ category_id }: FetchProps) => {
-  const queryClient = new QueryClient();
+export const useInfinityProductsQuery = (
+  params: FetchProps,
+  enabled?: boolean,
+) => {
+  return useInfiniteQuery({
+    ...createInfiniteProductsQueryOptions(params),
+    enabled,
+  });
+};
+
+export const prefetchInfinityProducts = async (params: FetchProps) => {
+  const queryClient = getQueryClient();
   await queryClient.prefetchInfiniteQuery({
-    ...fetchOptions({ category_id }),
+    ...createInfiniteProductsQueryOptions(params),
     pages: 1,
   });
   return queryClient;
-};
-
-export const useInfinityProductsQuery = ({ category_id }: FetchProps) => {
-  return useInfiniteQuery(fetchOptions({ category_id }));
 };
 
 export const getProductBySlug = (slug: string) => {

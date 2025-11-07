@@ -38,6 +38,8 @@ class ProductIndexRequest extends FormRequest
             'limit' => 'sometimes|integer',
             'category_id' => 'sometimes|integer',
             'page' => 'sometimes|integer',
+            'is_featured' => 'sometimes|integer',
+            'filter' => 'sometimes',
         ];
     }
 

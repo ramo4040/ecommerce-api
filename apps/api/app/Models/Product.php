@@ -74,7 +74,7 @@ class Product extends Model
     {
         return $query
             ->when(isset($filter['filter']), function ($query) use ($filter) {
-                $query->where('name', 'like', '%' . $filter['filter'] . '%');
+                $query->whereFullText(['name', 'description'], $filter['filter']);
             })
             ->when(isset($filter['category_id']), function ($query) use ($filter) {
                 $query->where('category_id', $filter['category_id']);

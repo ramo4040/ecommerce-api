@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/command";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useInfinityProductsQuery } from "@/entities/product";
+import { apiImgLoader } from "@/lib/utils";
 
 export const NavbarSearch = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -65,10 +66,15 @@ export const NavbarSearch = () => {
                   >
                     <div className="product-item-image-container">
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_API_URL}/storage/${e.main_image}`}
+                        src={e.main_image}
+                        loader={apiImgLoader}
                         alt={e.meta_title || "Product Image"}
                         fill
                         style={{ objectFit: "cover" }}
+                        placeholder="blur"
+                        blurDataURL={
+                          process.env.NEXT_PUBLIC_IMG_BASE64_PLACEHOLDER
+                        }
                       />
                     </div>
                     <div className="details">

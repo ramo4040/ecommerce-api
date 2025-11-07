@@ -3,15 +3,17 @@
 import "./style.css";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useInfinityProductsQuery } from "@/entities/product";
 import { ProductCard } from "../card";
 
 export const ShopProductsGrid = ({ categoryId }: { categoryId?: number }) => {
   const { ref, inView } = useInView();
 
-  const { data, fetchNextPage, hasNextPage } = useInfinityProductsQuery({
-    category_id: categoryId,
-  });
+  const { data, fetchNextPage, hasNextPage, isFetching } =
+    useInfinityProductsQuery({
+      category_id: categoryId,
+    });
 
   const products = data?.pages.flatMap((page) =>
     page.data ? page.data.data : [],
@@ -36,6 +38,12 @@ export const ShopProductsGrid = ({ categoryId }: { categoryId?: number }) => {
           />
         );
       })}
+      {isFetching && (
+        <>
+          <Skeleton />
+          <Skeleton />
+        </>
+      )}
     </div>
   );
 };

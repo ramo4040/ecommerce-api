@@ -2,6 +2,7 @@ import Image from "next/image";
 import { type ComponentProps, type FC, useCallback, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import type { Product } from "@/entities/product";
+import { apiImgLoader } from "@/lib/utils";
 
 type ImageObserverProps = ComponentProps<"div"> & {
   product: Product;
@@ -38,7 +39,10 @@ export const ImageObserver: FC<ImageObserverProps> = ({
   return (
     <div className="image" ref={setRefs} {...rest}>
       <Image
-        src={`${process.env.NEXT_PUBLIC_API_URL}/storage/${imageSrc}`}
+        src={imageSrc}
+        loader={apiImgLoader}
+        placeholder="blur"
+        blurDataURL={process.env.NEXT_PUBLIC_IMG_BASE64_PLACEHOLDER}
         alt={product.meta_title ?? product.name}
         fill
         style={{ objectFit: "cover" }}

@@ -12,3 +12,6 @@ export const calculateDiscount = (
   if (!comparePrice || comparePrice <= price) return null;
   return Math.round(((comparePrice - price) / comparePrice) * 100);
 };
+
+export const apiImgLoader = ({ src }: { src: string }) =>
+  `${process.env.NEXT_PUBLIC_API_URL}/storage/${src}`;

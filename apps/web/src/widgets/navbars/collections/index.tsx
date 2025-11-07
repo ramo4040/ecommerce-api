@@ -29,6 +29,8 @@ export const Collections: FC<ComponentProps<"a">> = async ({
             alt={collection.meta_title || collection.name}
             fill
             style={{ objectFit: "cover" }}
+            placeholder="blur"
+            blurDataURL={process.env.NEXT_PUBLIC_IMG_BASE64_PLACEHOLDER}
           />
         </div>
 

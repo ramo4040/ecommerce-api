@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('name')->collation('utf8mb4_0900_ai_ci');
+            $table->string('description')->nullable()->collation('utf8mb4_0900_ai_ci');
             $table->string('slug')->unique();
             $table->string('sku')->unique();
             $table->decimal('price', 10, 2);

@@ -6,7 +6,7 @@ import Link from "next/link";
 import type { ComponentProps, FC } from "react";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/entities/product";
-import { calculateDiscount, cn } from "@/lib/utils";
+import { apiImgLoader, calculateDiscount, cn } from "@/lib/utils";
 
 type Props = ComponentProps<"a"> & {
   product: Product;
@@ -24,10 +24,13 @@ export const ProductCard: FC<Props> = ({
       href={{ pathname: `/shop/${product.slug}` }}
     >
       <Image
-        src={`${process.env.NEXT_PUBLIC_API_URL}/storage/${product.main_image}`}
+        src={product.main_image}
+        loader={apiImgLoader}
         alt={product.meta_title ?? product.name}
         fill
         style={{ objectFit: "cover" }}
+        placeholder="blur"
+        blurDataURL={process.env.NEXT_PUBLIC_IMG_BASE64_PLACEHOLDER}
       />
 
       <div className="title">

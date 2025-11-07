@@ -4,7 +4,7 @@ import Image from "next/image";
 import "./style.css";
 import { type ComponentProps, useCallback, useRef, useState } from "react";
 import type { Product } from "@/entities/product";
-import { cn } from "@/lib/utils";
+import { apiImgLoader, cn } from "@/lib/utils";
 import { ImageObserver } from "./image-observer";
 
 type Props = ComponentProps<"div"> & {
@@ -55,7 +55,10 @@ export const ProductGallery = ({ product }: Props) => {
               className={cn(currentImage === imageSrc && "active")}
             >
               <Image
-                src={`${process.env.NEXT_PUBLIC_API_URL}/storage/${imageSrc}`}
+                src={imageSrc}
+                loader={apiImgLoader}
+                placeholder="blur"
+                blurDataURL={process.env.NEXT_PUBLIC_IMG_BASE64_PLACEHOLDER}
                 alt={product.meta_title ?? product.name}
                 fill
                 style={{ objectFit: "cover" }}

@@ -20,6 +20,8 @@ const DynamicHeroImage = () => {
       alt={config?.title}
       fill
       style={{ objectFit: "cover" }}
+      placeholder="blur"
+      blurDataURL={process.env.NEXT_PUBLIC_IMG_BASE64_PLACEHOLDER}
     />
   );
 };

@@ -1,7 +1,6 @@
 import "./style.css";
 import { ShoppingCart, X } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -14,11 +13,11 @@ import { useShoppingCartStore } from "@/entities/product";
 import { apiImgLoader } from "@/lib/utils";
 
 export const ShoppingCartNavbar = () => {
-  const { items, totalPrice, incDec, removeItem } = useShoppingCartStore();
-  const [cartOpen, setCartOpen] = useState(false);
+  const { items, totalPrice, incDec, removeItem, isOpen, toggleCart } =
+    useShoppingCartStore();
 
   return (
-    <Sheet open={cartOpen} onOpenChange={setCartOpen}>
+    <Sheet open={isOpen} onOpenChange={toggleCart}>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" id="shopping-cart-btn">
           <ShoppingCart strokeWidth={1.5} />
@@ -33,7 +32,7 @@ export const ShoppingCartNavbar = () => {
               variant="ghost"
               size="icon"
               className="close-btn"
-              onClick={() => setCartOpen(false)}
+              onClick={() => toggleCart()}
             >
               <X strokeWidth={1.5} />
             </Button>

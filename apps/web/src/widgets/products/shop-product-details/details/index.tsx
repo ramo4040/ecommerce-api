@@ -12,7 +12,7 @@ type Props = ComponentProps<"div"> & { product: Product };
 
 export const ProductInfoDetails = ({ product }: Props) => {
   const [quantity, setQuantity] = useState(1);
-  const { addItem } = useShoppingCartStore();
+  const { addItem, toggleCart } = useShoppingCartStore();
 
   return (
     <div id="product-info-details">
@@ -60,7 +60,10 @@ export const ProductInfoDetails = ({ product }: Props) => {
         <Button
           className="submit"
           size="lg"
-          onClick={() => addItem(product, quantity)}
+          onClick={() => {
+            addItem(product, quantity);
+            toggleCart();
+          }}
         >
           Add to Cart
         </Button>

@@ -1,19 +1,10 @@
 "use client";
 
-import { ArrowRight, Menu, Search, ShoppingCart, X } from "lucide-react";
+import { ArrowRight, Menu, ShoppingCart, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { type ComponentProps, type FC, useEffect, useState } from "react";
+import { type ComponentProps, type FC, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
 import {
   Sheet,
   SheetContent,
@@ -22,6 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ProductsData } from "@/entities/product";
+import { NavbarSearch } from "../search";
 
 const pageLinks = [
   { name: "Shop", href: "#" },
@@ -35,32 +27,11 @@ export const HeroRightNavbarClient: FC<ComponentProps<"div">> = ({
   const product = ProductsData[0];
 
   const [cartOpen, setCartOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
-      <Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)}>
-        <Search strokeWidth={1.5} />
-      </Button>
-
-      <CommandDialog open={searchOpen} onOpenChange={setSearchOpen}>
-        <Command>
-          <CommandInput placeholder="Type a command or search..." />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Products">
-              <CommandItem>Kapp</CommandItem>
-              <CommandItem>Skala</CommandItem>
-              <CommandItem>Fjord</CommandItem>
-              <CommandItem>Sona</CommandItem>
-              <CommandItem>Alba</CommandItem>
-              <CommandItem>Lykke</CommandItem>
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </CommandDialog>
-
+      <NavbarSearch />
       <Sheet open={cartOpen} onOpenChange={setCartOpen}>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon" className="shopping-cart-btn">

@@ -1,0 +1,15 @@
+#terms-privacy-text {
+  font-size: var(--spacing-12);
+  color: var(--muted-foreground);
+  line-height: 1.5;
+
+  a {
+    color: var(--primary);
+    text-decoration: underline;
+    transition: opacity var(--transition-expressive-default-spatial);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

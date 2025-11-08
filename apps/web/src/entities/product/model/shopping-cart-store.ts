@@ -62,18 +62,6 @@ export const useShoppingCartStore = create<State & Actions>()(
     {
       name: "shopping-cart-storage",
       storage: createJSONStorage(() => localStorage),
-      onRehydrateStorage: (state) => {
-        console.log("hydration starts");
-
-        // optional
-        return (state, error) => {
-          if (error) {
-            console.log("an error happened during hydration", error);
-          } else {
-            console.log("hydration finished");
-          }
-        };
-      },
     },
   ),
 );

@@ -1,14 +1,9 @@
-import "./style.css";
-import { EyeClosed } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldSet } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { AuthTab, useAuthModalStore } from "@/entities/auth";
 
-export const LoginWithEmailWidget = () => {
-  const [passwordVisible, setPasswordVisible] = useState(false);
+export const ForgotPasswordWidget = () => {
   const { pushTab } = useAuthModalStore();
   return (
     <>
@@ -18,17 +13,9 @@ export const LoginWithEmailWidget = () => {
             <Field>
               <Input id="email" type="text" placeholder="Email" />
             </Field>
-            <Field className="password-field">
-              <Input
-                id="password"
-                type={passwordVisible ? "text" : "password"}
-                placeholder="password"
-              />
-              <EyeClosed onClick={() => setPasswordVisible(!passwordVisible)} />
-            </Field>
             <Field>
               <Button size="lg" type="submit">
-                Log In
+                Send Reset Link
               </Button>
             </Field>
           </FieldGroup>
@@ -36,13 +23,13 @@ export const LoginWithEmailWidget = () => {
       </form>
 
       <Button
-        onClick={() => {
-          pushTab(AuthTab.ForgotPassword);
-        }}
         variant="link"
         className="link-item"
+        onClick={() => {
+          pushTab(AuthTab.Login);
+        }}
       >
-        Forgot password?
+        Back to Login
       </Button>
     </>
   );

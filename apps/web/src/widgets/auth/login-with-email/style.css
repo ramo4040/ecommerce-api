@@ -1,0 +1,25 @@
+#login-form {
+  min-width: 100%;
+  [data-slot="field-group"] {
+    gap: var(--spacing-10);
+  }
+
+  ::placeholder,
+  input {
+    font-size: var(--spacing-14);
+  }
+  .password-field {
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: 50%;
+      right: var(--spacing-16);
+      transform: translateY(-50%);
+      width: var(--spacing-16);
+      height: var(--spacing-16);
+      color: var(--muted-foreground);
+      cursor: pointer;
+    }
+  }
+}

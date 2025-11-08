@@ -5,9 +5,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans:
-    "Inter", "Geist", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Inter", "Geist", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 * {
@@ -64,6 +63,7 @@ body {
 
   --color-card-bg: #eeeeee; /* neutral gray */
   --color-card-bg-hover: #f4f4f4; /* slightly darker gray */
+  --card-font-color: var(--foreground);
   --input-bg-color: #181b1c;
   --input-inverse-bg-color: #eeeeee;
 }
@@ -103,6 +103,7 @@ body {
 
   --color-card-bg: #181b1c; /* card background */
   --color-card-bg-hover: #202324; /* hover background */
+  --card-font-color: #ffffffe0;
   --input-bg-color: #eeeeee;
   --input-inverse-bg-color: #181b1c;
 }

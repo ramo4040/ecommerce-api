@@ -7,7 +7,7 @@
   gap: var(--spacing-40);
 
   .auth-card {
-    width: 400px;
+    width: 450px;
     min-width: 400px;
     padding: var(--spacing-56);
     border-radius: var(--radius-md);
@@ -63,10 +63,11 @@
     a {
       color: var(--primary);
       text-decoration: underline;
-      transition: opacity var(--transition-expressive-default-spatial);
+      transition: var(--transition-expressive-default-spatial);
 
       &:hover {
         opacity: 0.8;
+        text-decoration: underline;
       }
     }
   }

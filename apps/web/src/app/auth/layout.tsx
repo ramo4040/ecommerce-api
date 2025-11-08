@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const { tab, popTab } = useAuthModalStore();
 
   return (
-    <main id="auth-container">
+    <main id="auth-wrapper">
       {tab.length > 1 && (
         <Button variant="secondary" className="back-btn" onClick={popTab}>
           <ArrowLeftIcon size={14} />
@@ -17,7 +17,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </Button>
       )}
       <Logo />
-      <div className="auth-card">{children}</div>
+      <div className="auth-card">
+        <div id="auth-container">{children}</div>
+      </div>
     </main>
   );
 }

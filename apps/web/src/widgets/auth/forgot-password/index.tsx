@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldSet } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { AuthTab, useAuthModalStore } from "@/entities/auth";
+import { useAuthModalStore } from "@/entities/auth";
 
 export const ForgotPasswordWidget = () => {
-  const { pushTab } = useAuthModalStore();
+  const { popTab } = useAuthModalStore();
   return (
     <>
       <form id="login-form">
@@ -22,13 +22,7 @@ export const ForgotPasswordWidget = () => {
         </FieldSet>
       </form>
 
-      <Button
-        variant="link"
-        className="link-item"
-        onClick={() => {
-          pushTab(AuthTab.Login);
-        }}
-      >
+      <Button variant="link" className="link-item" onClick={popTab}>
         Back to Login
       </Button>
     </>

@@ -1,7 +1,6 @@
 "use client";
 
 import { AuthTab, useAuthModalStore } from "@/entities/auth";
-import "./style.css";
 import {
   ForgotPasswordWidget,
   IndexAuthWidget,
@@ -14,7 +13,7 @@ export default function LoginPage() {
   const currentTab = tab.at(-1);
 
   return (
-    <div id="login-container">
+    <>
       {currentTab &&
         [
           AuthTab.ForgotPassword,
@@ -30,6 +29,6 @@ export default function LoginPage() {
       {currentTab === AuthTab.Login && <LoginAuthWidget />}
       {currentTab === AuthTab.LoginWithEmail && <LoginWithEmailWidget />}
       {currentTab === AuthTab.ForgotPassword && <ForgotPasswordWidget />}
-    </div>
+    </>
   );
 }

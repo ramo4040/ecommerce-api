@@ -1,4 +1,3 @@
-import { Marquee } from "@/widgets";
 import "./style.css";
 
 const Page = () => {

@@ -36,12 +36,19 @@
     "rules": {
       "recommended": true,
       "correctness": {
-        "useExhaustiveDependencies": "info",
+        "useExhaustiveDependencies": "off",
         "useUniqueElementIds": "off"
       },
       "suspicious": {
         "noUnknownAtRules": "off",
-        "noArrayIndexKey": "off"
+        "noArrayIndexKey": "off",
+        "noDoubleEquals": "info"
+      },
+      "complexity": {
+        "noImportantStyles": "off"
+      },
+      "a11y": {
+        "useSemanticElements": "info"
       },
       "nursery": {
         "useSortedClasses": {

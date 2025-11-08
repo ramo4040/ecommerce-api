@@ -1,3 +1,7 @@
+"use client";
+
+import { RegisterWidget } from "@/widgets/auth";
+
 export default function RegisterPage() {
-  return <div>Register Page</div>;
+  return <RegisterWidget />;
 }

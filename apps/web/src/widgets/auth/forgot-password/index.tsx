@@ -1,38 +1,29 @@
-import { PasswordInput } from "@/components/input-password";
-import "../style.css";
 import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldSet } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { AuthTab, useAuthModalStore } from "@/entities/auth";
+import { useAuthModalStore } from "@/entities/auth";
 
-export const LoginWithEmailWidget = () => {
-  const { pushTab } = useAuthModalStore();
+export const ForgotPasswordWidget = () => {
+  const { popTab } = useAuthModalStore();
   return (
     <>
-      <form id="auth-form">
+      <form id="login-form">
         <FieldSet>
           <FieldGroup>
             <Field>
               <Input id="email" type="text" placeholder="Email" />
             </Field>
-            <PasswordInput />
             <Field>
               <Button size="lg" type="submit">
-                Log In
+                Send Reset Link
               </Button>
             </Field>
           </FieldGroup>
         </FieldSet>
       </form>
 
-      <Button
-        onClick={() => {
-          pushTab(AuthTab.ForgotPassword);
-        }}
-        variant="link"
-        className="link-item"
-      >
-        Forgot password?
+      <Button variant="link" className="link-item" onClick={popTab}>
+        Back to Login
       </Button>
     </>
   );

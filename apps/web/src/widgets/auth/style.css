@@ -1,0 +1,11 @@
+#auth-form {
+  min-width: 100%;
+  [data-slot="field-group"] {
+    gap: var(--spacing-10);
+  }
+
+  ::placeholder,
+  input {
+    font-size: var(--spacing-14);
+  }
+}

@@ -8,9 +8,6 @@ export const LoginAuthWidget = () => {
 
   return (
     <>
-      <h1 className="title">
-        Login into your {process.env.NEXT_PUBLIC_COMPANY_NAME} account
-      </h1>
       <div className="actions">
         <GoogleBtn />
         <Button

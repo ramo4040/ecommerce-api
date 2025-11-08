@@ -1,8 +1,8 @@
 "use client";
 
 import { AuthTab, useAuthModalStore } from "@/entities/auth";
-import "./style.css";
 import {
+  ForgotPasswordWidget,
   IndexAuthWidget,
   LoginAuthWidget,
   LoginWithEmailWidget,
@@ -13,10 +13,22 @@ export default function LoginPage() {
   const currentTab = tab.at(-1);
 
   return (
-    <div id="login-container">
+    <>
+      {currentTab &&
+        [
+          AuthTab.ForgotPassword,
+          AuthTab.Login,
+          AuthTab.LoginWithEmail,
+        ].includes(currentTab) && (
+          <h1 className="title">
+            Login into your {process.env.NEXT_PUBLIC_COMPANY_NAME} account
+          </h1>
+        )}
+
       {currentTab === AuthTab.Index && <IndexAuthWidget />}
       {currentTab === AuthTab.Login && <LoginAuthWidget />}
       {currentTab === AuthTab.LoginWithEmail && <LoginWithEmailWidget />}
-    </div>
+      {currentTab === AuthTab.ForgotPassword && <ForgotPasswordWidget />}
+    </>
   );
 }

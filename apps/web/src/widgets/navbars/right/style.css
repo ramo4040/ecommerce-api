@@ -4,7 +4,6 @@
   padding: 0 var(--spacing-18) var(--spacing-4) var(--spacing-4);
   border-radius: 0 0 0 var(--radius-2xl);
   display: flex;
-  gap: var(--spacing-4);
 
   button {
     cursor: pointer;

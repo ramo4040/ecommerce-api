@@ -1,21 +1,26 @@
-import axios, { type AxiosRequestConfig } from "axios";
+import axios from "axios";
+import { Cookies } from "react-cookie";
+import { getCsrfToken } from "@/entities/auth";
 import type { GlobalResponse } from "../types";
 
 export const api = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_API_URL}`,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
   },
 });
 
-export const axFetcher = async <T>(
-  url: string,
-  config?: AxiosRequestConfig,
-) => {
-  const response = await api.get<T>(url, config);
-  return response.data;
-};
+api.interceptors.request.use(async (config) => {
+  const cookies = new Cookies();
+  const csrfToken = cookies.get("XSRF-TOKEN");
+
+  if (!csrfToken) {
+    await getCsrfToken();
+  }
+
+  return config;
+});
 
 // this for native nextjs server side fetch and revalidate usage
 export const fetcher = async <T>(

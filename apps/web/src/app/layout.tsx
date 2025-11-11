@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { BorderContainer } from "@/components/border-container";
 import Providers from "@/components/providers";
+import { AuthStoreProvider } from "@/entities/auth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,11 +22,24 @@ export const metadata: Metadata = {
   description: "my-better-t-app",
 };
 
-export default function RootLayout({
+async function getUser() {
+  return {
+    id: "string",
+    email: "string",
+    name: "yassir",
+    email_verified_at: "2025-11-07T17:03:01.000000Z",
+    created_at: "2025-11-07T17:03:01.000000Z",
+    updated_at: "2025-11-07T17:03:01.000000Z",
+  };
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const user = await getUser();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -33,8 +47,10 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
-          <BorderContainer />
-          {children}
+          <AuthStoreProvider user={user}>
+            <BorderContainer />
+            {children}
+          </AuthStoreProvider>
         </Providers>
       </body>
     </html>

@@ -1,5 +1,5 @@
 import "./style.css";
-import { EyeClosed } from "lucide-react";
+import { Eye, EyeClosed } from "lucide-react";
 import { type ComponentProps, type FC, useState } from "react";
 import { Field } from "../ui/field";
 import { Input } from "../ui/input";
@@ -14,7 +14,11 @@ export const PasswordInput: FC<ComponentProps<"input">> = ({ ...rest }) => {
         placeholder="password"
         {...rest}
       />
-      <EyeClosed onClick={() => setPasswordVisible(!passwordVisible)} />
+      {passwordVisible ? (
+        <EyeClosed onClick={() => setPasswordVisible(!passwordVisible)} />
+      ) : (
+        <Eye onClick={() => setPasswordVisible(!passwordVisible)} />
+      )}
     </Field>
   );
 };

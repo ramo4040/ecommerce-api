@@ -1,14 +1,15 @@
 import "./style.css";
 import { Eye, EyeClosed } from "lucide-react";
 import { type ComponentProps, type FC, useState } from "react";
-import { Field } from "../ui/field";
 import { Input } from "../ui/input";
 
-export const PasswordInput: FC<ComponentProps<"input">> = ({ ...rest }) => {
+export const PasswordInput: FC<
+  ComponentProps<"input"> & { error?: string }
+> = ({ error, ...rest }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   return (
-    <Field id="password-field">
+    <div id="password-field">
       <Input
         type={passwordVisible ? "text" : "password"}
         placeholder="password"
@@ -19,6 +20,6 @@ export const PasswordInput: FC<ComponentProps<"input">> = ({ ...rest }) => {
       ) : (
         <Eye onClick={() => setPasswordVisible(!passwordVisible)} />
       )}
-    </Field>
+    </div>
   );
 };

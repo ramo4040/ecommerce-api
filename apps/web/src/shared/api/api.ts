@@ -1,25 +1,16 @@
 import axios from "axios";
-import { Cookies } from "react-cookie";
-import { getCsrfToken } from "@/entities/auth";
 import type { GlobalResponse } from "../types";
 
 export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: process.env.NEXT_PUBLIC_PROXY_API_URL,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
   },
-});
-
-api.interceptors.request.use(async (config) => {
-  const cookies = new Cookies();
-  const csrfToken = cookies.get("XSRF-TOKEN");
-
-  if (!csrfToken) {
-    await getCsrfToken();
-  }
-
-  return config;
+  withCredentials: true,
+  withXSRFToken: true,
+  xsrfCookieName: "XSRF-TOKEN",
+  xsrfHeaderName: "X-XSRF-TOKEN",
 });
 
 // this for native nextjs server side fetch and revalidate usage

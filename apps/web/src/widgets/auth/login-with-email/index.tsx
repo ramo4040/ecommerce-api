@@ -25,6 +25,8 @@ export const LoginWithEmailWidget = () => {
 
   const { pushTab } = useAuthModalStore();
   const { isPending, mutate } = authApi.login();
+  const { isPending: isUserPending } = authApi.useUser();
+
   const onSubmit: SubmitHandler<LoginDto> = (data) => mutate(data);
 
   return (
@@ -52,8 +54,12 @@ export const LoginWithEmailWidget = () => {
             </Field>
 
             <Field>
-              <Button size="lg" type="submit" disabled={isPending}>
-                {isPending && <Spinner />}
+              <Button
+                size="lg"
+                type="submit"
+                disabled={isPending || isUserPending}
+              >
+                {(isPending || isUserPending) && <Spinner />}
                 Log In
               </Button>
             </Field>

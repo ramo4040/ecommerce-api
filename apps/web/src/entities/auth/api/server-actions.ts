@@ -7,10 +7,15 @@ import { USER_QUERY_KEY } from "./keys";
 
 export const prefetchUser = async () => {
   const queryClient = getQueryClient();
-  await queryClient.prefetchQuery({
+  await queryClient.prefetchQuery<User | null>({
     queryKey: USER_QUERY_KEY,
     queryFn: async () => {
-      return (await serverApi.get<User>("/api/user")).data;
+      try {
+        return (await serverApi.get<User>("/api/user")).data;
+      } catch (error) {
+        return null;
+      }
     },
   });
+  return queryClient;
 };

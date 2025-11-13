@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Menu, User2 } from "lucide-react";
+import { ArrowRight, BadgeDollarSign, LogOut, Menu, User2 } from "lucide-react";
 import Link from "next/link";
 import { type ComponentProps, type FC, useState } from "react";
 import {
@@ -15,6 +15,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { authApi } from "@/entities/auth";
 import { NavbarSearch } from "../search";
 import { ShoppingCartNavbar } from "../shopping-cart";
 
@@ -32,13 +33,22 @@ const accountPages = [
       { name: "Register", href: "/auth/register" },
     ],
   },
+  {
+    isAuth: true,
+    pages: [
+      { name: "Profile", href: "/profile", icon: User2 },
+      { name: "Orders", href: "/orders", icon: BadgeDollarSign },
+      { name: "Logout", href: "/auth/logout", icon: LogOut },
+    ],
+  },
 ];
 
 export const HeroRightNavbarClient: FC<ComponentProps<"div">> = ({
   children,
 }) => {
-  const isAuth = false;
+  const { data: user } = authApi.useUser();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { mutate: logout } = authApi.logout();
 
   return (
     <>
@@ -54,14 +64,30 @@ export const HeroRightNavbarClient: FC<ComponentProps<"div">> = ({
         contentProps={{ className: "menu-card-content about" }}
       >
         {accountPages
-          .filter((page) => page.isAuth === isAuth)[0]
+          .filter((page) => page.isAuth === !!user)[0]
           .pages.map((page) => (
             <ItemFlipWrapper key={page.name}>
-              <Link href={{ pathname: page.href }} className="item">
+              <Link
+                href={{ pathname: page.href }}
+                className="item"
+                onClick={
+                  page.name === "Logout"
+                    ? (e) => {
+                        e.preventDefault();
+                        logout();
+                      }
+                    : undefined
+                }
+              >
                 <h4>{page.name}</h4>
 
                 <ItemFlipAnimation
                   text={<ArrowRight size={14} />}
+                  hoverText={
+                    "icon" in page && page.icon ? (
+                      <page.icon size={14} strokeWidth={1.5} />
+                    ) : undefined
+                  }
                   className="icon"
                 />
               </Link>

@@ -1,6 +1,7 @@
 import "../index.css";
 import "@/public/styles/tokens.css";
 import "./style.css";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { BorderContainer } from "@/components/border-container";
@@ -27,7 +28,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  await prefetchUser();
+  const queryClient = await prefetchUser();
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -36,8 +37,10 @@ export default async function RootLayout({
         suppressHydrationWarning
       >
         <Providers>
-          <BorderContainer />
-          {children}
+          <HydrationBoundary state={dehydrate(queryClient)}>
+            {children}
+            <BorderContainer />
+          </HydrationBoundary>
         </Providers>
       </body>
     </html>
